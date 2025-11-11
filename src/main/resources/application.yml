@@ -1,0 +1,16 @@
+# 端口号
+server:
+  port: 2025
+
+# 数据库名：mysql
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydatabase?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: '0307'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# mybatis-plus配置
+#mybatis-plus:
+  # xml文件位置
+#  mapper-locations: classpath:mapper/*.xml

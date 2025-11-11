@@ -1,0 +1,219 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Spring Boot MyBatis-Plus API",
+    "description": "用户管理API接口文档 - 已更新为RESTful规范",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:2025",
+      "description": "本地开发环境"
+    }
+  ],
+  "paths": {
+    "/user/list": {
+      "get": {
+        "tags": ["用户管理"],
+        "summary": "获取用户列表",
+        "description": "获取所有用户信息",
+        "responses": {
+          "200": {
+            "description": "成功返回用户列表",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "张三",
+                    "age": 25
+                  },
+                  {
+                    "id": 2,
+                    "name": "李四",
+                    "age": 30
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/getUser/{id}": {
+      "get": {
+        "tags": ["用户管理"],
+        "summary": "根据ID获取用户",
+        "description": "根据用户ID获取单个用户信息",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "用户ID",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功返回用户信息",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "张三",
+                  "age": 25
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "用户不存在"
+          }
+        }
+      }
+    },
+    "/user/insert": {
+      "post": {
+        "tags": ["用户管理"],
+        "summary": "新增用户",
+        "description": "插入新用户信息（使用POST方法和JSON格式）",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInput"
+              },
+              "example": {
+                "name": "王五",
+                "age": 28
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功插入用户"
+          },
+          "400": {
+            "description": "请求参数错误"
+          }
+        }
+      }
+    },
+    "/user/update": {
+      "put": {
+        "tags": ["用户管理"],
+        "summary": "更新用户",
+        "description": "根据ID更新用户信息（使用PUT方法和JSON格式）",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "example": {
+                "id": 1,
+                "name": "张三更新",
+                "age": 26
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功更新用户"
+          },
+          "400": {
+            "description": "请求参数错误"
+          },
+          "404": {
+            "description": "用户不存在"
+          }
+        }
+      }
+    },
+    "/user/delete/{id}": {
+      "delete": {
+        "tags": ["用户管理"],
+        "summary": "删除用户",
+        "description": "根据ID删除用户（使用DELETE方法和路径参数）",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "用户ID",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功删除用户"
+          },
+          "404": {
+            "description": "用户不存在"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "用户ID（自动生成）",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "用户姓名",
+            "example": "张三"
+          },
+          "age": {
+            "type": "integer",
+            "description": "用户年龄",
+            "example": 25
+          }
+        },
+        "required": ["name", "age"]
+      },
+      "UserInput": {
+        "type": "object",
+        "required": ["name", "age"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "用户姓名",
+            "example": "王五"
+          },
+          "age": {
+            "type": "integer",
+            "description": "用户年龄",
+            "example": 28
+          }
+        }
+      }
+    }
+  }
+}
