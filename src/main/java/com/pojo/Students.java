@@ -15,12 +15,15 @@ import java.util.Date;
 public class Students {
 
     @TableId(type = IdType.AUTO)
-    private Integer id;
-    private String name;
+    private Integer stuId;
+    private String stuName;
     private String gender;
-    private Integer age;
-    private String major;
-//    private String className;
     private String phone;
-    private Date enrollmentdate;
+    private String idCard;
+    private String grade;
+    private String className;
+    private String hometown;
+    private String address;
+    private int deleted;
+
 }
