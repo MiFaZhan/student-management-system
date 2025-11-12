@@ -23,6 +23,7 @@ public class StudentsController {
         return studentsService.list();
     }
 
+
     /**
      *根据ID查询学生
      */
@@ -31,6 +32,7 @@ public class StudentsController {
         return studentsService.getById(stuId);
     }
 
+
     /**
      * 根据id批量查询学生信息
      */
@@ -38,6 +40,7 @@ public class StudentsController {
     public List<Students> getStudentsByIds(@RequestBody List<Integer> studentIds) {
         return studentsService.listByIds(studentIds);
     }
+
 
     /**
      * 根据姓名查询学生信息
@@ -56,13 +59,6 @@ public class StudentsController {
         studentsService.save(student);
     }
 
-//    /**
-//     * 批量插入学生信息
-//     */
-//    @PostMapping("/batch")
-//    public void batchInsertion(@RequestBody List<Students> students) {
-//        studentsService.saveBatch(students);
-//    }
 
     /**
      * 根据id更新学生表信息
@@ -71,6 +67,7 @@ public class StudentsController {
     public void updateById(@RequestBody Students student) {
         studentsService.updateById(student);
     }
+
 
     /**
      * 根据id删除学生信息
