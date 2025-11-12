@@ -18,7 +18,7 @@ public class StudentsController {
     /**
      *查询所有学生
      */
-    @GetMapping("/list")
+    @GetMapping("/students-list")
     public List<Students> getAllStudents() {
         return studentsService.list();
     }
