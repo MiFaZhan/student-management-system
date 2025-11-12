@@ -1,7 +1,5 @@
 package com.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.pojo.Students;
 import com.service.IStudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,7 @@ public class StudentsController {
      *查询所有学生
      */
     @GetMapping("/list")
-    public List<Students> list(){
+    public List<Students> getAllStudents() {
         return studentsService.list();
     }
 
@@ -29,11 +27,20 @@ public class StudentsController {
      *根据ID查询学生
      */
     @GetMapping("/{id}")
-    public Students getStudents(@PathVariable String id){
+    public Students getStudentById(@PathVariable String id) {
         return studentsService.getById(id);
     }
 
     /**
+     * 根据id批量查询学生信息
+     */
+    @PostMapping("/ids")
+    public List<Students> getStudentsByIds(@RequestBody List<Integer> studentIds) {
+        return studentsService.listByIds(studentIds);
+    }
+
+    /**
+     * 姓名查询笔记
      * 根据姓名查询学生信息一
      * 方式：使用条件构造器的QueryWrapper构造查询条件
      * 缺点：不如LambdaQueryWrapper，因此弃用
@@ -70,16 +77,24 @@ public class StudentsController {
      * 插入学生信息
      */
     @PostMapping
-    public void insertInfo(@RequestBody Students students){
-        studentsService.save(students);
+    public void insertion(@RequestBody Students student) {
+        studentsService.save(student);
     }
+
+//    /**
+//     * 批量插入学生信息
+//     */
+//    @PostMapping("/batch")
+//    public void batchInsertion(@RequestBody List<Students> students) {
+//        studentsService.saveBatch(students);
+//    }
 
     /**
      * 根据id更新学生表信息
      */
     @PutMapping
-    public void updateById(@RequestBody Students students){
-        studentsService.updateById(students);
+    public void updateById(@RequestBody Students student) {
+        studentsService.updateById(student);
     }
 
     /**
