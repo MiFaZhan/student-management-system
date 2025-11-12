@@ -16,7 +16,7 @@ public class ExamRecords {
     private int examId;
     private String subjectName;
     private String teacherName;
-    private String exam_start_time;
-    private String exam_end_time;
+    private String examStartTime;
+    private String examEndTime;
     private int deleted;
 }

@@ -1,7 +1,9 @@
 package com.controller;
 
 import com.pojo.ExamRecords;
+import com.service.IExamRecordsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,10 +13,10 @@ import java.util.List;
 @RequestMapping("/exam-records")
 public class ExamRecordsController {
     @Autowired
-    private ExamRecordsController examRecordsController;
+    private IExamRecordsService examRecordsService;
 
-    @RequestMapping("examrecords-list")
-    public List<ExamRecords> getExamRecords(){
-        return examRecordsController.getExamRecords();
+    @GetMapping("/examrecords-list")
+    public List<ExamRecords> getExamRecords() {
+        return examRecordsService.list();
     }
 }

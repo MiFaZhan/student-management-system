@@ -28,7 +28,7 @@ public class StudentsController {
      *根据ID查询学生
      */
     @GetMapping("/{stuId}")
-    public Students getStudentById(@PathVariable String stuId) {
+    public Students getStudentById(@PathVariable Integer stuId) {
         return studentsService.getById(stuId);
     }
 
@@ -37,8 +37,8 @@ public class StudentsController {
      * 根据id批量查询学生信息
      */
     @PostMapping("/studentIds")
-    public List<Students> getStudentsByIds(@RequestBody List<Integer> studentIds) {
-        return studentsService.listByIds(studentIds);
+    public List<Students> getStudentsByIds(@RequestBody List<Integer> stuIds) {
+        return studentsService.listByIds(stuIds);
     }
 
 
@@ -72,8 +72,8 @@ public class StudentsController {
     /**
      * 根据id删除学生信息
      */
-    @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable String stuId){
+    @DeleteMapping("/{stuId}")
+    public void deleteById(@PathVariable Integer stuId){
         studentsService.removeById(stuId);
     }
 }
