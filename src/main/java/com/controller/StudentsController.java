@@ -36,7 +36,7 @@ public class StudentsController {
     /**
      * 根据id批量查询学生信息
      */
-    @PostMapping("/ids")
+    @PostMapping("/studentIds")
     public List<Students> getStudentsByIds(@RequestBody List<Integer> studentIds) {
         return studentsService.listByIds(studentIds);
     }
@@ -45,9 +45,9 @@ public class StudentsController {
     /**
      * 根据姓名查询学生信息
      */
-    @GetMapping("/search")
+    @GetMapping("/stuName")
     public List<Students> searchStudentsByName(@RequestParam String stuName) {
-        return studentsService.findByName(stuName);
+        return studentsService.findByStuName(stuName);
     }
 
 

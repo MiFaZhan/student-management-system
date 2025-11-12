@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> implements IStudentsService {
     @Override
-    public List<Students> findByName(String stuName) {
+    public List<Students> findByStuName(String stuName) {
         LambdaQueryWrapper<Students> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Students::getStuName, stuName);
         return this.list(wrapper);
