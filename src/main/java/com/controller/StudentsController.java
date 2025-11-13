@@ -16,7 +16,7 @@ public class StudentsController {
 
 
     /**
-     *查询所有学生
+     * 查询所有学生
      */
     @GetMapping
     public List<Students> getAllStudents() {
@@ -25,7 +25,7 @@ public class StudentsController {
 
 
     /**
-     *根据ID查询学生
+     * 根据id查询学生
      */
     @GetMapping("/{id}")
     public Students getStudentById(@PathVariable Integer id) {
@@ -47,7 +47,7 @@ public class StudentsController {
      */
     @GetMapping("/name")
     public List<Students> searchStudentsByName(@RequestParam String name) {
-        return studentsService.findByStuName(name);
+        return studentsService.getByStuName(name);
     }
 
 
@@ -74,9 +74,8 @@ public class StudentsController {
     }
 
 
-
     /**
-     * 更新学生表信息
+     * 根据id更新学生表信息
      */
     @PutMapping
     public void updateById(@RequestBody Students student) {

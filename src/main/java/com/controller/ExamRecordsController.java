@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/exam-records")
+@RequestMapping("/api/exam-records")
 public class ExamRecordsController {
+
     @Autowired
     private IExamRecordsService examRecordsService;
 
@@ -22,11 +23,55 @@ public class ExamRecordsController {
     }
 
     /**
-     * 插入数据
+     * 根据id查询考试记录
+     */
+    @GetMapping("/{id}")
+    public ExamRecords getExamRecordsById(@PathVariable Integer id) {
+        return examRecordsService.getById(id);
+    }
+
+    /**
+     * 根据科目名称查询考试记录
+     */
+    @GetMapping("/subjectName")
+    public List<ExamRecords> getExamRecordsBySubjectName(@RequestParam String subjectName) {
+        return examRecordsService.getBySubjectName(subjectName);
+    }
+
+    /**
+     * 根据老师查询考试记录
+     */
+    @GetMapping("/teacherName")
+    public List<ExamRecords> getExamRecordsByTeacherName(@RequestParam String teacherName) {
+        return examRecordsService.getByTeacherName(teacherName);
+    }
+
+    /**
+     * 新增考试记录
      */
     @PostMapping("/examRecords")
-    public void saveExamRecords(@RequestBody ExamRecords examRecords){
-        examRecordsService.save(examRecords);
+    public boolean saveExamRecords(@RequestBody ExamRecords examRecords){
+        if (examRecords == null)
+            return false;
+        return examRecordsService.save(examRecords);
+    }
+
+    /**
+     * 批量新增考试记录
+     */
+    @PostMapping("/batch")
+    public boolean batchInsert(@RequestBody List<ExamRecords> examRecords){
+        if (examRecords == null || examRecords.isEmpty())
+            return false;
+        return examRecordsService.saveBatch(examRecords);
+    }
+
+    /**
+     * 根据id更新考试记录
+     */
+    @PutMapping
+    public boolean updateExamRecordsById(@RequestBody ExamRecords examRecords){
+        return examRecordsService.updateById(examRecords);
     }
 
     /**

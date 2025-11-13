@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @TableName("exam_records")
 public class ExamRecords {
     @TableId(type = IdType.AUTO)
-    private int examId;
+    private Integer examId;
     private String subjectName;
     private String teacherName;
     private String examStartTime;
