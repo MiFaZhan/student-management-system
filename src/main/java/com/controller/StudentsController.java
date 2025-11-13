@@ -52,12 +52,24 @@ public class StudentsController {
 
 
     /**
-     * 插入学生信息
+     * 新增学生信息
      */
     @PostMapping
     public void createStudent(@RequestBody Students student) {
         studentsService.save(student);
     }
+
+    /**
+     * 批量新增学生信息
+     */
+    @PostMapping("/batch")
+    public boolean batchInsert(@RequestBody List<Students> students) {
+        if (students == null || students.isEmpty()) {
+            return false;
+        }
+        return studentsService.saveBatch(students);
+    }
+
 
 
     /**
