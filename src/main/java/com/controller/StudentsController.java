@@ -55,8 +55,11 @@ public class StudentsController {
      * 新增学生信息
      */
     @PostMapping
-    public void createStudent(@RequestBody Students student) {
-        studentsService.save(student);
+    public boolean createStudent(@RequestBody Students student) {
+        if (student == null) {
+            return false;
+        }
+        return studentsService.save(student);
     }
 
     /**
