@@ -74,6 +74,6 @@ public class StudentsController {
      */
     @DeleteMapping("/{stuId}")
     public void deleteById(@PathVariable Integer stuId){
-        studentsService.deleteStuById(stuId);
+        studentsService.removeById(stuId);
     }
 }

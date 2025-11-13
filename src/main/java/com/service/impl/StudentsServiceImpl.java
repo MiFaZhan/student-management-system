@@ -18,8 +18,4 @@ public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> i
         return this.list(wrapper);
     }
 
-    @Override
-    public boolean deleteStuById(Integer id) {
-        return baseMapper.deleteById(id) > 0;
-    }
 }
