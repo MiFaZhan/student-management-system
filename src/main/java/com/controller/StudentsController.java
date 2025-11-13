@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/api/students")
 public class StudentsController {
 
     @Autowired
@@ -18,7 +18,7 @@ public class StudentsController {
     /**
      *查询所有学生
      */
-    @GetMapping("/students-list")
+    @GetMapping
     public List<Students> getAllStudents() {
         return studentsService.list();
     }
@@ -27,27 +27,27 @@ public class StudentsController {
     /**
      *根据ID查询学生
      */
-    @GetMapping("/{stuId}")
-    public Students getStudentById(@PathVariable Integer stuId) {
-        return studentsService.getById(stuId);
+    @GetMapping("/{id}")
+    public Students getStudentById(@PathVariable Integer id) {
+        return studentsService.getById(id);
     }
 
 
     /**
      * 根据id批量查询学生信息
      */
-    @PostMapping("/studentIds")
-    public List<Students> getStudentsByIds(@RequestBody List<Integer> stuIds) {
-        return studentsService.listByIds(stuIds);
+    @PostMapping("/ids")
+    public List<Students> getStudentsByIds(@RequestBody List<Integer> ids) {
+        return studentsService.listByIds(ids);
     }
 
 
     /**
      * 根据姓名查询学生信息
      */
-    @GetMapping("/stuName")
-    public List<Students> searchStudentsByName(@RequestParam String stuName) {
-        return studentsService.findByStuName(stuName);
+    @GetMapping("/name")
+    public List<Students> searchStudentsByName(@RequestParam String name) {
+        return studentsService.findByStuName(name);
     }
 
 
@@ -55,13 +55,13 @@ public class StudentsController {
      * 插入学生信息
      */
     @PostMapping
-    public void insertion(@RequestBody Students student) {
+    public void createStudent(@RequestBody Students student) {
         studentsService.save(student);
     }
 
 
     /**
-     * 根据id更新学生表信息
+     * 更新学生表信息
      */
     @PutMapping
     public void updateById(@RequestBody Students student) {
@@ -72,8 +72,8 @@ public class StudentsController {
     /**
      * 根据id删除学生信息
      */
-    @DeleteMapping("/{stuId}")
-    public void deleteById(@PathVariable Integer stuId){
-        studentsService.removeById(stuId);
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id){
+        studentsService.removeById(id);
     }
 }
