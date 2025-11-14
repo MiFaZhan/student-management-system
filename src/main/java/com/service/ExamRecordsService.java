@@ -12,7 +12,15 @@ import java.util.List;
 * @createDate 2025-11-14 14:44:22
 */
 public interface ExamRecordsService extends IService<ExamRecords> {
+    /**
+     * 查询所有考试记录
+     * @return 考试记录DTO列表
+     */
+    List<ExamRecordDTO> getAllExamRecords();
+
     List<ExamRecordDTO> getExamRecordsBySubjectId(Integer subjectId);
 
-    List<ExamRecords> getByTeacherName(String teacherName);
+    List<ExamRecordDTO> getByTeacherName(String teacherName);
+
+    ExamRecordDTO getExamRecordsById(Integer id);
 }
