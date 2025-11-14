@@ -1,6 +1,6 @@
 package com.mapper;
 
-import com.entity.ExamRecords;
+import com.entity.ExamRecord;
 import com.github.yulichang.base.MPJBaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.github.yulichang.base.MPJBaseMapper;
 * @createDate 2025-11-14 14:44:22
 * @Entity com.entity.ExamRecords
 */
-public interface ExamRecordsMapper extends MPJBaseMapper<ExamRecords> {
+public interface ExamRecordMapper extends MPJBaseMapper<ExamRecord> {
 
 }
 

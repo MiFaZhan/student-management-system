@@ -1,7 +1,6 @@
 package com.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
@@ -13,7 +12,7 @@ import lombok.Data;
  */
 @TableName(value ="exam_records")
 @Data
-public class ExamRecords {
+public class ExamRecord {
     /**
      * 
      */
@@ -61,7 +60,7 @@ public class ExamRecords {
         if (getClass() != that.getClass()) {
             return false;
         }
-        ExamRecords other = (ExamRecords) that;
+        ExamRecord other = (ExamRecord) that;
         return (this.getExamId() == null ? other.getExamId() == null : this.getExamId().equals(other.getExamId()))
             && (this.getSubjectId() == null ? other.getSubjectId() == null : this.getSubjectId().equals(other.getSubjectId()))
             && (this.getExamName() == null ? other.getExamName() == null : this.getExamName().equals(other.getExamName()))

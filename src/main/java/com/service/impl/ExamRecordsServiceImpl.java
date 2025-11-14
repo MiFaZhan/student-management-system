@@ -1,10 +1,10 @@
 package com.service.impl;
 
 import com.dto.ExamRecordDTO;
-import com.entity.ExamRecords;
+import com.entity.ExamRecord;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
-import com.mapper.ExamRecordsMapper;
+import com.mapper.ExamRecordMapper;
 import com.service.ExamRecordsService;
 import org.springframework.stereotype.Service;
 
@@ -16,24 +16,24 @@ import java.util.List;
 * @createDate 2025-11-14 14:44:22
 */
 @Service
-public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordsMapper, ExamRecords>
+public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, ExamRecord>
     implements ExamRecordsService{
 
     /**
      * 构建考试记录查询条件
      * @return 查询条件包装器
      */
-    private MPJLambdaWrapper<ExamRecords> buildExamRecordWrapper() {
-        MPJLambdaWrapper<ExamRecords> wrapper = new MPJLambdaWrapper<ExamRecords>()
-                .select(ExamRecords::getExamId)
-                .select(ExamRecords::getExamName)
-                .select(ExamRecords::getTeacherName)
-                .select(ExamRecords::getExamStartTime)
-                .select(ExamRecords::getExamEndTime)
+    private MPJLambdaWrapper<ExamRecord> buildExamRecordWrapper() {
+        MPJLambdaWrapper<ExamRecord> wrapper = new MPJLambdaWrapper<ExamRecord>()
+                .select(ExamRecord::getExamId)
+                .select(ExamRecord::getExamName)
+                .select(ExamRecord::getTeacherName)
+                .select(ExamRecord::getExamStartTime)
+                .select(ExamRecord::getExamEndTime)
                 // 子查询统计成绩人数
                 .select("(SELECT COUNT(*) FROM scores WHERE scores.exam_id = t.exam_id AND scores.deleted = 0) AS participantCount")
-                .eq(ExamRecords::getDeleted, 0)
-                .orderByAsc(ExamRecords::getExamStartTime);
+                .eq(ExamRecord::getDeleted, 0)
+                .orderByAsc(ExamRecord::getExamStartTime);
         
         return wrapper;
     }
@@ -43,7 +43,7 @@ public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordsMapper
      */
     @Override
     public List<ExamRecordDTO> getAllExamRecords() {
-        MPJLambdaWrapper<ExamRecords> wrapper = buildExamRecordWrapper();
+        MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
         return this.selectJoinList(ExamRecordDTO.class, wrapper);
     }
 
@@ -52,8 +52,8 @@ public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordsMapper
      */
     @Override
     public List<ExamRecordDTO> getExamRecordsBySubjectId(Integer subjectId) {
-        MPJLambdaWrapper<ExamRecords> wrapper = buildExamRecordWrapper();
-        wrapper.eq(ExamRecords::getSubjectId, subjectId);
+        MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
+        wrapper.eq(ExamRecord::getSubjectId, subjectId);
         return this.selectJoinList(ExamRecordDTO.class, wrapper);
     }
 
@@ -62,8 +62,8 @@ public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordsMapper
      */
     @Override
     public List<ExamRecordDTO> getByTeacherName(String teacherName) {
-        MPJLambdaWrapper<ExamRecords> wrapper = buildExamRecordWrapper();
-        wrapper.eq(ExamRecords::getTeacherName, teacherName);
+        MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
+        wrapper.eq(ExamRecord::getTeacherName, teacherName);
         return this.selectJoinList(ExamRecordDTO.class, wrapper);
     }
 
@@ -72,8 +72,8 @@ public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordsMapper
      */
     @Override
     public ExamRecordDTO getExamRecordsById(Integer id) {
-        MPJLambdaWrapper<ExamRecords> wrapper = buildExamRecordWrapper();
-        wrapper.eq(ExamRecords::getExamId, id);
+        MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
+        wrapper.eq(ExamRecord::getExamId, id);
         return this.selectJoinOne(ExamRecordDTO.class, wrapper);
     }
 }

@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.entity.Students;
-import com.service.StudentsService;
+import com.entity.Student;
+import com.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,18 +9,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/students")
-public class StudentsController {
+public class StudentController {
 
     @Autowired
-    private StudentsService studentsService;
+    private StudentService studentService;
 
 
     /**
      * 查询所有学生
      */
     @GetMapping
-    public List<Students> getAllStudents() {
-        return studentsService.list();
+    public List<Student> getAllStudents() {
+        return studentService.list();
     }
 
 
@@ -28,8 +28,8 @@ public class StudentsController {
      * 根据id查询学生
      */
     @GetMapping("/{id}")
-    public Students getStudentById(@PathVariable Integer id) {
-        return studentsService.getById(id);
+    public Student getStudentById(@PathVariable Integer id) {
+        return studentService.getById(id);
     }
 
 
@@ -37,8 +37,8 @@ public class StudentsController {
      * 根据id批量查询学生信息
      */
     @PostMapping("/ids")
-    public List<Students> getStudentsByIds(@RequestBody List<Integer> ids) {
-        return studentsService.listByIds(ids);
+    public List<Student> getStudentsByIds(@RequestBody List<Integer> ids) {
+        return studentService.listByIds(ids);
     }
 
 
@@ -46,8 +46,8 @@ public class StudentsController {
      * 根据姓名查询学生信息
      */
     @GetMapping("/name")
-    public List<Students> searchStudentsByName(@RequestParam String name) {
-        return studentsService.getByStuName(name);
+    public List<Student> searchStudentsByName(@RequestParam String name) {
+        return studentService.getByStuName(name);
     }
 
 
@@ -55,22 +55,22 @@ public class StudentsController {
      * 新增学生信息
      */
     @PostMapping
-    public boolean createStudent(@RequestBody Students student) {
+    public boolean createStudent(@RequestBody Student student) {
         if (student == null) {
             return false;
         }
-        return studentsService.save(student);
+        return studentService.save(student);
     }
 
     /**
      * 批量新增学生信息
      */
     @PostMapping("/batch")
-    public boolean batchInsert(@RequestBody List<Students> students) {
+    public boolean batchInsert(@RequestBody List<Student> students) {
         if (students == null || students.isEmpty()) {
             return false;
         }
-        return studentsService.saveBatch(students);
+        return studentService.saveBatch(students);
     }
 
 
@@ -78,8 +78,8 @@ public class StudentsController {
      * 根据id更新学生表信息
      */
     @PutMapping
-    public void updateById(@RequestBody Students student) {
-        studentsService.updateById(student);
+    public void updateById(@RequestBody Student student) {
+        studentService.updateById(student);
     }
 
 
@@ -88,6 +88,6 @@ public class StudentsController {
      */
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id){
-        studentsService.removeById(id);
+        studentService.removeById(id);
     }
 }

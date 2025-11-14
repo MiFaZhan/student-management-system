@@ -1,6 +1,6 @@
 package com.mapper;
 
-import com.entity.Scores;
+import com.entity.Score;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2025-11-14 14:44:22
 * @Entity com.entity.Scores
 */
-public interface ScoresMapper extends BaseMapper<Scores> {
+public interface ScoreMapper extends BaseMapper<Score> {
 
 }
 

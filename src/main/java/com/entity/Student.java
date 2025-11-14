@@ -11,7 +11,7 @@ import lombok.Data;
  */
 @TableName(value ="students")
 @Data
-public class Students {
+public class Student {
     /**
      * 
      */
@@ -79,7 +79,7 @@ public class Students {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Students other = (Students) that;
+        Student other = (Student) that;
         return (this.getStudentId() == null ? other.getStudentId() == null : this.getStudentId().equals(other.getStudentId()))
             && (this.getStudentNumber() == null ? other.getStudentNumber() == null : this.getStudentNumber().equals(other.getStudentNumber()))
             && (this.getStudentName() == null ? other.getStudentName() == null : this.getStudentName().equals(other.getStudentName()))

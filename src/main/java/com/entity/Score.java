@@ -1,7 +1,6 @@
 package com.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.math.BigDecimal;
@@ -13,7 +12,7 @@ import lombok.Data;
  */
 @TableName(value ="scores")
 @Data
-public class Scores {
+public class Score {
     /**
      * 
      */
@@ -51,7 +50,7 @@ public class Scores {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Scores other = (Scores) that;
+        Score other = (Score) that;
         return (this.getScoreId() == null ? other.getScoreId() == null : this.getScoreId().equals(other.getScoreId()))
             && (this.getStudentNumber() == null ? other.getStudentNumber() == null : this.getStudentNumber().equals(other.getStudentNumber()))
             && (this.getExamId() == null ? other.getExamId() == null : this.getExamId().equals(other.getExamId()))

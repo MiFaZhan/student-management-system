@@ -2,9 +2,9 @@ package com.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.entity.Students;
-import com.mapper.StudentsMapper;
-import com.service.StudentsService;
+import com.entity.Student;
+import com.mapper.StudentMapper;
+import com.service.StudentService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,13 +15,13 @@ import java.util.List;
 * @createDate 2025-11-14 14:44:22
 */
 @Service
-public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students>
-    implements StudentsService{
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
+    implements StudentService {
 
     @Override
-    public List<Students> getByStuName(String studentName) {
-        LambdaQueryWrapper<Students> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Students::getStudentName, studentName);
+    public List<Student> getByStuName(String studentName) {
+        LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Student::getStudentName, studentName);
         return this.list(queryWrapper);
     }
 }

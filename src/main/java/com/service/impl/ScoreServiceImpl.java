@@ -1,9 +1,9 @@
 package com.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.entity.Scores;
-import com.service.ScoresService;
-import com.mapper.ScoresMapper;
+import com.entity.Score;
+import com.service.ScoreService;
+import com.mapper.ScoreMapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 * @createDate 2025-11-14 14:44:22
 */
 @Service
-public class ScoresServiceImpl extends ServiceImpl<ScoresMapper, Scores>
-    implements ScoresService{
+public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score>
+    implements ScoreService {
 
 }
 
