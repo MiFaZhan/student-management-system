@@ -1,7 +1,7 @@
 package com.mapper;
 
 import com.entity.ExamRecords;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.yulichang.base.MPJBaseMapper;
 
 /**
 * @author MIFAZHAN
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2025-11-14 14:44:22
 * @Entity com.entity.ExamRecords
 */
-public interface ExamRecordsMapper extends BaseMapper<ExamRecords> {
+public interface ExamRecordsMapper extends MPJBaseMapper<ExamRecords> {
 
 }
 

@@ -1,6 +1,7 @@
 package com.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.dto.ExamRecordDTO;
 import com.entity.ExamRecords;
 
 import java.util.List;
@@ -11,5 +12,7 @@ import java.util.List;
 * @createDate 2025-11-14 14:44:22
 */
 public interface ExamRecordsService extends IService<ExamRecords> {
+    List<ExamRecordDTO> getExamRecordsBySubjectId(Integer subjectId);
+
     List<ExamRecords> getByTeacherName(String teacherName);
 }

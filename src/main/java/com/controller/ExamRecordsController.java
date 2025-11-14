@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.dto.ExamRecordDTO;
 import com.entity.ExamRecords;
 import com.service.ExamRecordsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,14 @@ public class ExamRecordsController {
 
     @Autowired
     private ExamRecordsService examRecordsService;
+
+    /**
+     * 根据科目ID查询考试记录
+     */
+    @GetMapping("/subject/{subjectId}")
+    public List<ExamRecordDTO> getBySubject(@PathVariable Integer subjectId) {
+        return examRecordsService.getExamRecordsBySubjectId(subjectId);
+    }
 
     /**
      * 查询所有考试记录

@@ -31,7 +31,7 @@ public class Students {
     /**
      * 性别
      */
-    private Object gender;
+    private String gender;
 
     /**
      * 联系方式
