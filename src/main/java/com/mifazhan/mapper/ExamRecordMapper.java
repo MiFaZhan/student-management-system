@@ -1,6 +1,6 @@
-package com.mapper;
+package com.mifazhan.mapper;
 
-import com.entity.ExamRecord;
+import com.mifazhan.entity.ExamRecord;
 import com.github.yulichang.base.MPJBaseMapper;
 
 /**

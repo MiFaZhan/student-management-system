@@ -1,9 +1,9 @@
-package com.service.impl;
+package com.mifazhan.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.entity.Subject;
-import com.service.SubjectService;
-import com.mapper.SubjectMapper;
+import com.mifazhan.entity.Subject;
+import com.mifazhan.service.SubjectService;
+import com.mifazhan.mapper.SubjectMapper;
 import org.springframework.stereotype.Service;
 
 /**

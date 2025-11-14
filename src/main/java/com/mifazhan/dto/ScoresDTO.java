@@ -1,4 +1,4 @@
-package com.dto;
+package com.mifazhan.dto;
 
 import java.util.Date;
 

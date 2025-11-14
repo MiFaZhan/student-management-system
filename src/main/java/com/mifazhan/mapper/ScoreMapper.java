@@ -1,6 +1,6 @@
-package com.mapper;
+package com.mifazhan.mapper;
 
-import com.entity.Score;
+import com.mifazhan.entity.Score;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

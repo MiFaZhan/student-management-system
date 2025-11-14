@@ -1,7 +1,7 @@
-package com.controller;
+package com.mifazhan.controller;
 
-import com.dto.ExamRecordDTO;
-import com.service.ExamRecordsService;
+import com.mifazhan.dto.ExamRecordDTO;
+import com.mifazhan.service.ExamRecordsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

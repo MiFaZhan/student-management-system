@@ -1,7 +1,7 @@
-package com.controller;
+package com.mifazhan.controller;
 
-import com.entity.Student;
-import com.service.StudentService;
+import com.mifazhan.entity.Student;
+import com.mifazhan.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

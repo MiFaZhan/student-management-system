@@ -1,11 +1,11 @@
-package com.service.impl;
+package com.mifazhan.service.impl;
 
-import com.dto.ExamRecordDTO;
-import com.entity.ExamRecord;
+import com.mifazhan.dto.ExamRecordDTO;
+import com.mifazhan.entity.ExamRecord;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
-import com.mapper.ExamRecordMapper;
-import com.service.ExamRecordsService;
+import com.mifazhan.mapper.ExamRecordMapper;
+import com.mifazhan.service.ExamRecordsService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

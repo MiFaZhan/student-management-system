@@ -1,6 +1,6 @@
-package com.service;
+package com.mifazhan.service;
 
-import com.entity.Score;
+import com.mifazhan.entity.Score;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

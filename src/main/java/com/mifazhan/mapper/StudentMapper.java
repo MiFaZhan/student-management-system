@@ -1,6 +1,6 @@
-package com.mapper;
+package com.mifazhan.mapper;
 
-import com.entity.Student;
+import com.mifazhan.entity.Student;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

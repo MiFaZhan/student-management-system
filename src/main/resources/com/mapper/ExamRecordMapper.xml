@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mapper.ExamRecordMapper">
+<mapper namespace="com.mifazhan.mapper.ExamRecordMapper">
 
-    <resultMap id="BaseResultMap" type="com.entity.ExamRecord">
+    <resultMap id="BaseResultMap" type="com.mifazhan.entity.ExamRecord">
             <id property="examId" column="exam_id" />
             <result property="subjectId" column="subject_id" />
             <result property="examName" column="exam_name" />

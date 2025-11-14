@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <groupId>com.gsj</groupId>
-    <artifactId>spring-boot-mp</artifactId>
+    <artifactId>student-management-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-mp</name>
     <description>spring-boot-mp</description>

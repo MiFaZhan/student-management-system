@@ -1,9 +1,9 @@
-package com.service.impl;
+package com.mifazhan.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.entity.Score;
-import com.service.ScoreService;
-import com.mapper.ScoreMapper;
+import com.mifazhan.entity.Score;
+import com.mifazhan.service.ScoreService;
+import com.mifazhan.mapper.ScoreMapper;
 import org.springframework.stereotype.Service;
 
 /**

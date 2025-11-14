@@ -1,6 +1,6 @@
-package com.service;
+package com.mifazhan.service;
 
-import com.entity.Student;
+import com.mifazhan.entity.Student;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
