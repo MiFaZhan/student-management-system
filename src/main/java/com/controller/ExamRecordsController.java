@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.pojo.ExamRecords;
-import com.service.IExamRecordsService;
+import com.entity.ExamRecords;
+import com.service.ExamRecordsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class ExamRecordsController {
 
     @Autowired
-    private IExamRecordsService examRecordsService;
+    private ExamRecordsService examRecordsService;
 
     /**
      * 查询所有考试记录

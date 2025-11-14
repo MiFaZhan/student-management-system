@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.StudentsMapper">
+
+    <resultMap id="BaseResultMap" type="com.entity.Students">
+            <id property="studentId" column="student_id" />
+            <result property="studentNumber" column="student_number" />
+            <result property="studentName" column="student_name" />
+            <result property="gender" column="gender" />
+            <result property="phone" column="phone" />
+            <result property="idCard" column="id_card" />
+            <result property="grade" column="grade" />
+            <result property="className" column="class_name" />
+            <result property="hometown" column="hometown" />
+            <result property="address" column="address" />
+            <result property="deleted" column="deleted" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        student_id,student_number,student_name,gender,phone,id_card,
+        grade,class_name,hometown,address,deleted
+    </sql>
+</mapper>

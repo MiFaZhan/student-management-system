@@ -1,0 +1,13 @@
+package com.service;
+
+import com.entity.Subject;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+* @author MIFAZHAN
+* @description 针对表【subject(科目表)】的数据库操作Service
+* @createDate 2025-11-14 14:44:22
+*/
+public interface SubjectService extends IService<Subject> {
+
+}

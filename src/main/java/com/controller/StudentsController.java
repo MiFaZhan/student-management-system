@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.pojo.Students;
-import com.service.IStudentsService;
+import com.entity.Students;
+import com.service.StudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class StudentsController {
 
     @Autowired
-    private IStudentsService studentsService;
+    private StudentsService studentsService;
 
 
     /**

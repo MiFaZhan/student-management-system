@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ExamRecordsMapper">
+
+    <resultMap id="BaseResultMap" type="com.entity.ExamRecords">
+            <id property="examId" column="exam_id" />
+            <result property="subjectId" column="subject_id" />
+            <result property="examName" column="exam_name" />
+            <result property="teacherName" column="teacher_name" />
+            <result property="examStartTime" column="exam_start_time" />
+            <result property="examEndTime" column="exam_end_time" />
+            <result property="deleted" column="deleted" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        exam_id,subject_id,exam_name,teacher_name,exam_start_time,exam_end_time,
+        deleted
+    </sql>
+</mapper>
