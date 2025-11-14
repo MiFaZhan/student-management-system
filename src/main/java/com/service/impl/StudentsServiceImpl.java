@@ -14,7 +14,7 @@ public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> i
     @Override
     public List<Students> getByStuName(String stuName) {
         LambdaQueryWrapper<Students> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Students::getStuName, stuName);
+        wrapper.eq(Students::getStudentName, stuName);
         return this.list(wrapper);
     }
 

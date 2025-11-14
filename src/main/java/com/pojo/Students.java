@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 public class Students {
 
     @TableId(type = IdType.AUTO)
-    private Integer stuId;
-    private String stuName;
+    private Integer studentId;
+    private String studentName;
     private String gender;
     private String phone;
     private String idCard;

@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface IExamRecordsService extends IService<ExamRecords> {
 
-    List<ExamRecords> getBySubjectName(String subjectName);
-
     List<ExamRecords> getByTeacherName(String teacherName);
 }

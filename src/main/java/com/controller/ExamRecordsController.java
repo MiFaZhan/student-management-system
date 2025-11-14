@@ -30,13 +30,6 @@ public class ExamRecordsController {
         return examRecordsService.getById(id);
     }
 
-    /**
-     * 根据科目名称查询考试记录
-     */
-    @GetMapping("/subjectName")
-    public List<ExamRecords> getExamRecordsBySubjectName(@RequestParam String subjectName) {
-        return examRecordsService.getBySubjectName(subjectName);
-    }
 
     /**
      * 根据老师查询考试记录

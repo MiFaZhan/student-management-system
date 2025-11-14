@@ -12,12 +12,7 @@ import java.util.List;
 @Service
 public class ExamRecordsImpl extends ServiceImpl<ExamRecordsMapper, ExamRecords> implements IExamRecordsService {
 
-    @Override
-    public List<ExamRecords> getBySubjectName(String subjectName) {
-        LambdaQueryWrapper<ExamRecords> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(ExamRecords::getSubjectName, subjectName);
-        return this.list(queryWrapper);
-    }
+
 
     @Override
     public List<ExamRecords> getByTeacherName(String teacherName) {
