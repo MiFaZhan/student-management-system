@@ -1,4 +1,4 @@
-package com.mifazhan.dto;
+package com.mifazhan.vo;
 
 import java.util.Date;
 

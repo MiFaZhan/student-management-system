@@ -1,6 +1,6 @@
 package com.mifazhan.controller;
 
-import com.mifazhan.dto.ExamRecordVO;
+import com.mifazhan.vo.ExamRecordVO;
 import com.mifazhan.service.ExamRecordsService;
 import com.mifazhan.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;

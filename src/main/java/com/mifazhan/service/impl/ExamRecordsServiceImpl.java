@@ -1,6 +1,6 @@
 package com.mifazhan.service.impl;
 
-import com.mifazhan.dto.ExamRecordVO;
+import com.mifazhan.vo.ExamRecordVO;
 import com.mifazhan.entity.ExamRecord;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;

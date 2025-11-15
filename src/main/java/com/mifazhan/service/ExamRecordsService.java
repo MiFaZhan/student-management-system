@@ -1,7 +1,7 @@
 package com.mifazhan.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.mifazhan.dto.ExamRecordVO;
+import com.mifazhan.vo.ExamRecordVO;
 import com.mifazhan.entity.ExamRecord;
 
 import java.util.List;
