@@ -2,6 +2,7 @@ package com.mifazhan.controller;
 
 import com.mifazhan.entity.Student;
 import com.mifazhan.service.StudentService;
+import com.mifazhan.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +20,9 @@ public class StudentController {
      * 查询所有学生
      */
     @GetMapping
-    public List<Student> getAllStudents() {
-        return studentService.list();
+    public Result<List<Student>> getAllStudents() {
+        Result<List<Student>> result = new Result<>();
+        return result.success(studentService.list());
     }
 
 
@@ -28,8 +30,9 @@ public class StudentController {
      * 根据id查询学生
      */
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Integer id) {
-        return studentService.getById(id);
+    public Result<Student> getStudentById(@PathVariable Integer id) {
+        Result<Student> result = new Result<>();
+        return result.success(studentService.getById(id));
     }
 
 
@@ -37,8 +40,9 @@ public class StudentController {
      * 根据id批量查询学生信息
      */
     @PostMapping("/ids")
-    public List<Student> getStudentsByIds(@RequestBody List<Integer> ids) {
-        return studentService.listByIds(ids);
+    public Result<List<Student>> getStudentsByIds(@RequestBody List<Integer> ids) {
+        Result<List<Student>> result = new Result<>();
+        return result.success(studentService.listByIds(ids));
     }
 
 
@@ -46,8 +50,9 @@ public class StudentController {
      * 根据姓名查询学生信息
      */
     @GetMapping("/name")
-    public List<Student> searchStudentsByName(@RequestParam String name) {
-        return studentService.getByStuName(name);
+    public Result<List<Student>> searchStudentsByName(@RequestParam String name) {
+        Result<List<Student>> result = new Result<>();
+        return result.success(studentService.getByStuName(name));
     }
 
 
@@ -55,22 +60,18 @@ public class StudentController {
      * 新增学生信息
      */
     @PostMapping
-    public boolean createStudent(@RequestBody Student student) {
-        if (student == null) {
-            return false;
-        }
-        return studentService.save(student);
+    public Result createStudent(@RequestBody Student student) {
+        Result result = new Result<>();
+        return result.success(studentService.save(student));
     }
 
     /**
      * 批量新增学生信息
      */
     @PostMapping("/batch")
-    public boolean batchInsert(@RequestBody List<Student> students) {
-        if (students == null || students.isEmpty()) {
-            return false;
-        }
-        return studentService.saveBatch(students);
+    public Result batchInsert(@RequestBody List<Student> students) {
+        Result result = new Result<>();
+        return result.success(studentService.saveBatch(students));
     }
 
 
@@ -78,8 +79,9 @@ public class StudentController {
      * 根据id更新学生表信息
      */
     @PutMapping
-    public void updateById(@RequestBody Student student) {
-        studentService.updateById(student);
+    public Result updateById(@RequestBody Student student) {
+        Result result = new Result<>();
+        return result.success(studentService.updateById(student));
     }
 
 
@@ -87,7 +89,8 @@ public class StudentController {
      * 根据id删除学生信息
      */
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Integer id){
-        studentService.removeById(id);
+    public Result deleteById(@PathVariable Integer id){
+        Result result = new Result<>();
+        return result.success(studentService.removeById(id));
     }
 }

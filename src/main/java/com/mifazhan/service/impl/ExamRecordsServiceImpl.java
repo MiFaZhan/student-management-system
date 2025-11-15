@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
 * @author MIFAZHAN
-* @description 针对表【exam_records(考试记录表)】的数据库操作Service实现
+* @description 针对表【exam_record(考试记录表)】的数据库操作Service实现
 * @createDate 2025-11-14 14:44:22
 */
 @Service
