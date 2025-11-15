@@ -1,6 +1,6 @@
 package com.mifazhan.service.impl;
 
-import com.mifazhan.dto.ExamRecordDTO;
+import com.mifazhan.dto.ExamRecordVO;
 import com.mifazhan.entity.ExamRecord;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
@@ -42,39 +42,39 @@ public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper,
      * 查询所有考试记录
      */
     @Override
-    public List<ExamRecordDTO> getAllExamRecords() {
+    public List<ExamRecordVO> getAllExamRecords() {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
-        return this.selectJoinList(ExamRecordDTO.class, wrapper);
+        return this.selectJoinList(ExamRecordVO.class, wrapper);
     }
 
     /**
      * 根据课程id查询考试记录
      */
     @Override
-    public List<ExamRecordDTO> getExamRecordsBySubjectId(Integer subjectId) {
+    public List<ExamRecordVO> getExamRecordsBySubjectId(Integer subjectId) {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
         wrapper.eq(ExamRecord::getSubjectId, subjectId);
-        return this.selectJoinList(ExamRecordDTO.class, wrapper);
+        return this.selectJoinList(ExamRecordVO.class, wrapper);
     }
 
     /**
      * 根据出题教师查询考试记录
      */
     @Override
-    public List<ExamRecordDTO> getByTeacherName(String teacherName) {
+    public List<ExamRecordVO> getByTeacherName(String teacherName) {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
         wrapper.eq(ExamRecord::getTeacherName, teacherName);
-        return this.selectJoinList(ExamRecordDTO.class, wrapper);
+        return this.selectJoinList(ExamRecordVO.class, wrapper);
     }
 
     /**
      * 根据id查询考试记录
      */
     @Override
-    public ExamRecordDTO getExamRecordsById(Integer id) {
+    public ExamRecordVO getExamRecordsById(Integer id) {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
         wrapper.eq(ExamRecord::getExamId, id);
-        return this.selectJoinOne(ExamRecordDTO.class, wrapper);
+        return this.selectJoinOne(ExamRecordVO.class, wrapper);
     }
 }
 

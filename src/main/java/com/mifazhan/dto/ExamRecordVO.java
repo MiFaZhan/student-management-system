@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class ExamRecordDTO {
+public class ExamRecordVO {
     private Integer examId;
     private String examName;
     private String teacherName;

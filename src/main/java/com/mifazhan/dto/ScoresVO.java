@@ -2,7 +2,7 @@ package com.mifazhan.dto;
 
 import java.util.Date;
 
-public class ScoresDTO {
+public class ScoresVO {
     private Integer scoreId;
     private String studentNumber;
     private Integer examId;

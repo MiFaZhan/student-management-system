@@ -1,7 +1,7 @@
 package com.mifazhan.controller;
 
-import com.mifazhan.dto.SubjectDTO;
 import com.mifazhan.service.SubjectService;
+import com.mifazhan.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,9 +20,10 @@ public class SubjectController {
      * @return
      */
 //    @GetMapping
-//    public List<SubjectDTO> getSubjects() {
-//        return subjectService.list();
-//        return BeanUtil.copyToList(list, SubjectDTO.class);
+//    public Result<List<SubjectDTO>> getSubjects() {
+//        List<Subject> entityList = subjectService.list();
+//        List<SubjectDTO> dtoList = subjectConvert.toDTOList(entityList);
+//        return Result.success(subjectService.list());
 //    }
 
     /**
@@ -31,8 +32,8 @@ public class SubjectController {
      * @return
      */
     @GetMapping("/{id}")
-    public SubjectDTO getSubjectById(@PathVariable String id) {
-        return getSubjectById(id);
+    public Result getSubjectById(@PathVariable String id) {
+        return Result.success(getSubjectById(id));
     }
 
 }

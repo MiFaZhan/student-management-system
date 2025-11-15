@@ -1,7 +1,7 @@
 package com.mifazhan.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.mifazhan.dto.ExamRecordDTO;
+import com.mifazhan.dto.ExamRecordVO;
 import com.mifazhan.entity.ExamRecord;
 
 import java.util.List;
@@ -16,11 +16,11 @@ public interface ExamRecordsService extends IService<ExamRecord> {
      * 查询所有考试记录
      * @return 考试记录DTO列表
      */
-    List<ExamRecordDTO> getAllExamRecords();
+    List<ExamRecordVO> getAllExamRecords();
 
-    List<ExamRecordDTO> getExamRecordsBySubjectId(Integer subjectId);
+    List<ExamRecordVO> getExamRecordsBySubjectId(Integer subjectId);
 
-    List<ExamRecordDTO> getByTeacherName(String teacherName);
+    List<ExamRecordVO> getByTeacherName(String teacherName);
 
-    ExamRecordDTO getExamRecordsById(Integer id);
+    ExamRecordVO getExamRecordsById(Integer id);
 }

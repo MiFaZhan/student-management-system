@@ -21,8 +21,7 @@ public class StudentController {
      */
     @GetMapping
     public Result<List<Student>> getAllStudents() {
-        Result<List<Student>> result = new Result<>();
-        return result.success(studentService.list());
+        return Result.success(studentService.list());
     }
 
 
@@ -31,8 +30,7 @@ public class StudentController {
      */
     @GetMapping("/{id}")
     public Result<Student> getStudentById(@PathVariable Integer id) {
-        Result<Student> result = new Result<>();
-        return result.success(studentService.getById(id));
+        return Result.success(studentService.getById(id));
     }
 
 
@@ -41,8 +39,7 @@ public class StudentController {
      */
     @PostMapping("/ids")
     public Result<List<Student>> getStudentsByIds(@RequestBody List<Integer> ids) {
-        Result<List<Student>> result = new Result<>();
-        return result.success(studentService.listByIds(ids));
+        return Result.success(studentService.listByIds(ids));
     }
 
 
@@ -51,8 +48,7 @@ public class StudentController {
      */
     @GetMapping("/name")
     public Result<List<Student>> searchStudentsByName(@RequestParam String name) {
-        Result<List<Student>> result = new Result<>();
-        return result.success(studentService.getByStuName(name));
+        return Result.success(studentService.getByStuName(name));
     }
 
 
@@ -61,8 +57,7 @@ public class StudentController {
      */
     @PostMapping
     public Result createStudent(@RequestBody Student student) {
-        Result result = new Result<>();
-        return result.success(studentService.save(student));
+        return Result.success(studentService.save(student));
     }
 
     /**
@@ -70,8 +65,7 @@ public class StudentController {
      */
     @PostMapping("/batch")
     public Result batchInsert(@RequestBody List<Student> students) {
-        Result result = new Result<>();
-        return result.success(studentService.saveBatch(students));
+        return Result.success(studentService.saveBatch(students));
     }
 
 
@@ -80,8 +74,7 @@ public class StudentController {
      */
     @PutMapping
     public Result updateById(@RequestBody Student student) {
-        Result result = new Result<>();
-        return result.success(studentService.updateById(student));
+        return Result.success(studentService.updateById(student));
     }
 
 
@@ -90,7 +83,6 @@ public class StudentController {
      */
     @DeleteMapping("/{id}")
     public Result deleteById(@PathVariable Integer id){
-        Result result = new Result<>();
-        return result.success(studentService.removeById(id));
+        return Result.success(studentService.removeById(id));
     }
 }

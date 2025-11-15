@@ -1,7 +1,8 @@
 package com.mifazhan.controller;
 
-import com.mifazhan.dto.ExamRecordDTO;
+import com.mifazhan.dto.ExamRecordVO;
 import com.mifazhan.service.ExamRecordsService;
+import com.mifazhan.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,24 +19,24 @@ public class ExamRecordsController {
      * 查询所有考试记录
      */
     @GetMapping
-    public List<ExamRecordDTO> getExamRecords() {
-        return examRecordsService.getAllExamRecords();
+    public Result<List<ExamRecordVO>> getExamRecords() {
+        return Result.success(examRecordsService.getAllExamRecords());
     }
 
     /**
      * 根据科目ID查询考试记录
      */
     @GetMapping("/subject/{subjectId}")
-    public List<ExamRecordDTO> getBySubject(@PathVariable Integer subjectId) {
-        return examRecordsService.getExamRecordsBySubjectId(subjectId);
+    public Result<List<ExamRecordVO>> getBySubject(@PathVariable Integer subjectId) {
+        return Result.success(examRecordsService.getExamRecordsBySubjectId(subjectId));
     }
 
     /**
      * 根据id查询考试记录
      */
     @GetMapping("/{id}")
-    public ExamRecordDTO getExamRecordsById(@PathVariable Integer id) {
-        return examRecordsService.getExamRecordsById(id);
+    public Result getExamRecordsById(@PathVariable Integer id) {
+        return Result.success(examRecordsService.getExamRecordsById(id));
     }
 
 
@@ -43,8 +44,8 @@ public class ExamRecordsController {
      * 根据出题教师查询考试记录
      */
     @GetMapping("/teacherName")
-    public List<ExamRecordDTO> getExamRecordsByTeacherName(@RequestParam String teacherName) {
-        return examRecordsService.getByTeacherName(teacherName);
+    public Result<List<ExamRecordVO>> getExamRecordsByTeacherName(@RequestParam String teacherName) {
+        return Result.success(examRecordsService.getByTeacherName(teacherName));
     }
 
 
