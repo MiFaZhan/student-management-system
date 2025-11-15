@@ -6,12 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/scores")
+@RequestMapping("/api/score")
 public class ScoreController {
     @Autowired
     private ScoreMapper scoreMapper;
-
-
-
-
 }

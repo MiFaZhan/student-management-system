@@ -3,14 +3,15 @@ package com.mifazhan.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.util.Date;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * 考试记录表
- * @TableName exam_records
+ * @TableName exam_record
  */
-@TableName(value ="exam_records")
+@TableName(value ="exam_record")
 @Data
 public class ExamRecord {
     /**

@@ -31,7 +31,7 @@ public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper,
                 .select(ExamRecord::getExamStartTime)
                 .select(ExamRecord::getExamEndTime)
                 // 子查询统计成绩人数
-                .select("(SELECT COUNT(*) FROM scores WHERE scores.exam_id = t.exam_id AND scores.deleted = 0) AS participantCount")
+                .select("(SELECT COUNT(*) FROM score WHERE score.exam_id = t.exam_id AND score.deleted = 0) AS participantCount")
                 .eq(ExamRecord::getDeleted, 0)
                 .orderByAsc(ExamRecord::getExamStartTime);
         

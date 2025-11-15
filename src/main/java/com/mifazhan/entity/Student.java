@@ -7,9 +7,9 @@ import lombok.Data;
 
 /**
  * 学生表
- * @TableName students
+ * @TableName student
  */
-@TableName(value ="students")
+@TableName(value ="student")
 @Data
 public class Student {
     /**

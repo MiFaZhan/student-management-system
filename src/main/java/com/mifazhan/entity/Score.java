@@ -3,14 +3,15 @@ package com.mifazhan.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.math.BigDecimal;
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 /**
  * 成绩表
- * @TableName scores
+ * @TableName score
  */
-@TableName(value ="scores")
+@TableName(value ="score")
 @Data
 public class Score {
     /**
