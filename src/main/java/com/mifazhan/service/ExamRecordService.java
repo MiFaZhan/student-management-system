@@ -16,11 +16,11 @@ public interface ExamRecordService extends IService<ExamRecord> {
      * 查询所有考试记录
      * @return 考试记录DTO列表
      */
-    List<ExamRecordVO> getAllExamRecords();
+    List<ExamRecordVO> listExamRecords();
 
     List<ExamRecordVO> getExamRecordsBySubjectId(Integer subjectId);
 
-    List<ExamRecordVO> getByTeacherName(String teacherName);
-
     ExamRecordVO getExamRecordsById(Integer id);
+
+    List<ExamRecordVO> getExamRecordsByTeacherName(String teacherName);
 }

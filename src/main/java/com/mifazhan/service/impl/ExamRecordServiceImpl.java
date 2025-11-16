@@ -51,7 +51,7 @@ public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, 
      * 查询所有考试记录
      */
     @Override
-    public List<ExamRecordVO> getAllExamRecords() {
+    public List<ExamRecordVO> listExamRecords() {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
         List<ExamRecordVO> examRecords = examRecordMapper.selectJoinList(ExamRecordVO.class, wrapper);
         return examRecords;
@@ -71,10 +71,11 @@ public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, 
      * 根据出题教师查询考试记录
      */
     @Override
-    public List<ExamRecordVO> getByTeacherName(String teacherName) {
+    public List<ExamRecordVO> getExamRecordsByTeacherName(String teacherName) {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
         wrapper.eq(ExamRecord::getTeacherName, teacherName);
-        return this.selectJoinList(ExamRecordVO.class, wrapper);
+        List<ExamRecordVO> examRecords = this.selectJoinList(ExamRecordVO.class, wrapper);
+        return examRecords;
     }
 
     /**
@@ -84,7 +85,8 @@ public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, 
     public ExamRecordVO getExamRecordsById(Integer id) {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
         wrapper.eq(ExamRecord::getExamId, id);
-        return this.selectJoinOne(ExamRecordVO.class, wrapper);
+        ExamRecordVO examRecord = this.selectJoinOne(ExamRecordVO.class, wrapper);
+        return examRecord;
     }
 }
 

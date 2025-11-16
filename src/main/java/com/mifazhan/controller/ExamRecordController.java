@@ -19,16 +19,16 @@ public class ExamRecordController {
      * 查询所有考试记录
      */
     @GetMapping
-    public Result<List<ExamRecordVO>> getExamRecords() {
-        return Result.success(examRecordService.getAllExamRecords());
+    public Result<List<ExamRecordVO>> listExamRecords() {
+        return Result.success(examRecordService.listExamRecords());
     }
 
     /**
      * 根据科目ID查询考试记录
      */
-    @GetMapping("/subject/{subjectId}")
-    public Result<List<ExamRecordVO>> getBySubject(@PathVariable Integer subjectId) {
-        return Result.success(examRecordService.getExamRecordsBySubjectId(subjectId));
+    @GetMapping("/subject/{id}")
+    public Result<List<ExamRecordVO>> getExamRecordsBySubjectId(@PathVariable Integer id) {
+        return Result.success(examRecordService.getExamRecordsBySubjectId(id));
     }
 
     /**
@@ -45,7 +45,7 @@ public class ExamRecordController {
      */
     @GetMapping("/teacherName")
     public Result<List<ExamRecordVO>> getExamRecordsByTeacherName(@RequestParam String teacherName) {
-        return Result.success(examRecordService.getByTeacherName(teacherName));
+        return Result.success(examRecordService.getExamRecordsByTeacherName(teacherName));
     }
 
 
