@@ -4,7 +4,7 @@ import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.mifazhan.entity.ExamRecord;
 import com.mifazhan.mapper.ExamRecordMapper;
-import com.mifazhan.service.ExamRecordsService;
+import com.mifazhan.service.ExamRecordService;
 import com.mifazhan.vo.ExamRecordVO;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +16,8 @@ import java.util.List;
 * @createDate 2025-11-14 14:44:22
 */
 @Service
-public class ExamRecordsServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, ExamRecord>
-    implements ExamRecordsService{
+public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, ExamRecord>
+    implements ExamRecordService {
 
     /**
      * 构建考试记录查询条件

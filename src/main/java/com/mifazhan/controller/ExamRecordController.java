@@ -1,7 +1,7 @@
 package com.mifazhan.controller;
 
 import com.mifazhan.vo.ExamRecordVO;
-import com.mifazhan.service.ExamRecordsService;
+import com.mifazhan.service.ExamRecordService;
 import com.mifazhan.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,17 +10,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/exam-record")
-public class ExamRecordsController {
+public class ExamRecordController {
 
     @Autowired
-    private ExamRecordsService examRecordsService;
+    private ExamRecordService examRecordService;
 
     /**
      * 查询所有考试记录
      */
     @GetMapping
     public Result<List<ExamRecordVO>> getExamRecords() {
-        return Result.success(examRecordsService.getAllExamRecords());
+        return Result.success(examRecordService.getAllExamRecords());
     }
 
     /**
@@ -28,7 +28,7 @@ public class ExamRecordsController {
      */
     @GetMapping("/subject/{subjectId}")
     public Result<List<ExamRecordVO>> getBySubject(@PathVariable Integer subjectId) {
-        return Result.success(examRecordsService.getExamRecordsBySubjectId(subjectId));
+        return Result.success(examRecordService.getExamRecordsBySubjectId(subjectId));
     }
 
     /**
@@ -36,7 +36,7 @@ public class ExamRecordsController {
      */
     @GetMapping("/{id}")
     public Result getExamRecordsById(@PathVariable Integer id) {
-        return Result.success(examRecordsService.getExamRecordsById(id));
+        return Result.success(examRecordService.getExamRecordsById(id));
     }
 
 
@@ -45,7 +45,7 @@ public class ExamRecordsController {
      */
     @GetMapping("/teacherName")
     public Result<List<ExamRecordVO>> getExamRecordsByTeacherName(@RequestParam String teacherName) {
-        return Result.success(examRecordsService.getByTeacherName(teacherName));
+        return Result.success(examRecordService.getByTeacherName(teacherName));
     }
 
 

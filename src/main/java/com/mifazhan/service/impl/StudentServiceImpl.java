@@ -36,19 +36,19 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
 
     @Override
     public List<StudentVO> getAllStudents() {
-        List<Student> list = studentMapper.selectList(null);
+        List<Student> list = this.list();
         return studentConverter.toVOList(list);
     }
 
     @Override
     public StudentVO getStudentById(Integer id) {
-        Student student = studentMapper.selectById(id);
+        Student student = this.getById(id);
         return studentConverter.toVO(student);
     }
 
     @Override
     public List<StudentVO> getStudentsByIds(List<Integer> ids) {
-        List<Student> list = studentMapper.selectBatchIds(ids);
+        List<Student> list = this.listByIds(ids);
         return studentConverter.toVOList(list);
     }
 

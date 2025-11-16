@@ -3,7 +3,6 @@ package com.mifazhan.converter;
 import com.mifazhan.entity.Student;
 import com.mifazhan.vo.StudentVO;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
@@ -12,8 +11,6 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring")
 public interface StudentConverter {
-
-    StudentConverter INSTANCE = Mappers.getMapper(StudentConverter.class);
 
     /**
      * Student实体转StudentVO
