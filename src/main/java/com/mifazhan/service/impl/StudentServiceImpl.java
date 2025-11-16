@@ -40,7 +40,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
 
 
     @Override
-    public List<StudentVO> getAllStudents() {
+    public List<StudentVO> listStudents() {
         List<Student> list = this.list();
         return studentConverter.toVOList(list);
     }
@@ -52,7 +52,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     }
 
     @Override
-    public List<StudentVO> getStudentsByIds(List<Integer> ids) {
+    public List<StudentVO> listStudentsByIds(List<Integer> ids) {
         List<Student> list = this.listByIds(ids);
         return studentConverter.toVOList(list);
     }

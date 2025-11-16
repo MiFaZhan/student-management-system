@@ -20,7 +20,7 @@ public class SubjectController {
      * @return
      */
     @GetMapping
-    public Result<List<SubjectVO>> getSubject() {
+    public Result<List<SubjectVO>> listSubject() {
         return Result.success(subjectService.getSubject());
     }
 

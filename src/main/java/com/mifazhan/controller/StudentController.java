@@ -21,8 +21,8 @@ public class StudentController {
      * 查询所有学生
      */
     @GetMapping
-    public Result<List<StudentVO>> getAllStudents() {
-        return Result.success(studentService.getAllStudents());
+    public Result<List<StudentVO>> listStudents() {
+        return Result.success(studentService.listStudents());
     }
 
 
@@ -39,8 +39,8 @@ public class StudentController {
      * 根据id批量查询学生信息
      */
     @PostMapping("/ids")
-    public Result<List<StudentVO>> getStudentsByIds(@RequestBody List<Integer> ids) {
-        return Result.success(studentService.getStudentsByIds(ids));
+    public Result<List<StudentVO>> listStudentsByIds(@RequestBody List<Integer> ids) {
+        return Result.success(studentService.listStudentsByIds(ids));
     }
 
 

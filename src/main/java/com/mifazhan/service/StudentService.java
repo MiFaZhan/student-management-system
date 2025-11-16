@@ -13,11 +13,11 @@ import java.util.List;
 */
 public interface StudentService extends IService<Student> {
 
-    List<StudentVO> getAllStudents();
+    List<StudentVO> listStudents();
 
     StudentVO getStudentById(Integer id);
 
-    List<StudentVO> getStudentsByIds(List<Integer> ids);
+    List<StudentVO> listStudentsByIds(List<Integer> ids);
 
     List<StudentVO> getStudentsByName(String name);
 

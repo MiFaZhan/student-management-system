@@ -2,10 +2,12 @@ package com.mifazhan.service.impl;
 
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import com.mifazhan.converter.ExamRecordConverter;
 import com.mifazhan.entity.ExamRecord;
 import com.mifazhan.mapper.ExamRecordMapper;
 import com.mifazhan.service.ExamRecordService;
 import com.mifazhan.vo.ExamRecordVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +20,13 @@ import java.util.List;
 @Service
 public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, ExamRecord>
     implements ExamRecordService {
+
+    @Autowired
+    private ExamRecordMapper examRecordMapper;
+
+    @Autowired
+    private ExamRecordConverter examRecordConverter;
+
 
     /**
      * 构建考试记录查询条件
@@ -44,7 +53,8 @@ public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, 
     @Override
     public List<ExamRecordVO> getAllExamRecords() {
         MPJLambdaWrapper<ExamRecord> wrapper = buildExamRecordWrapper();
-        return this.selectJoinList(ExamRecordVO.class, wrapper);
+        List<ExamRecordVO> examRecords = examRecordMapper.selectJoinList(ExamRecordVO.class, wrapper);
+        return examRecords;
     }
 
     /**
