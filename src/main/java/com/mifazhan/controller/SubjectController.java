@@ -4,10 +4,7 @@ import com.mifazhan.service.SubjectService;
 import com.mifazhan.vo.Result;
 import com.mifazhan.vo.SubjectVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,7 +30,7 @@ public class SubjectController {
      * @return
      */
     @GetMapping("/{id}")
-    public Result getSubjectById(@PathVariable String id) {
+    public Result getSubjectById(@PathVariable Integer id) {
         return Result.success(subjectService.getSubjectById(id));
     }
 
@@ -42,8 +39,8 @@ public class SubjectController {
      * @param name
      * @return
      */
-    @GetMapping("/{name}")
-    public Result getSubjectByName(@PathVariable String name) {
+    @GetMapping("/name")
+    public Result getSubjectByName(@RequestParam String name) {
         return Result.success(subjectService.getSubjectByName(name));
     }
 

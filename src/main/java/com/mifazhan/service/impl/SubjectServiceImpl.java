@@ -34,7 +34,7 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject>
     }
 
     @Override
-    public SubjectVO getSubjectById(String id) {
+    public SubjectVO getSubjectById(Integer id) {
         Subject subject = this.getById(id);
         if (subject != null) {
             return subjectConverter.toVO(subject);

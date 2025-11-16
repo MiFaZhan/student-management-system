@@ -31,11 +31,13 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
         LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Student::getStudentName, studentName);
         List<Student> students = studentMapper.selectList(queryWrapper);
-        if(students != null){
-            return studentConverter.toVOList(students);
-        }else
-            return null;
+        return studentConverter.toVOList(students);
+//        if(students != null){
+//            return studentConverter.toVOList(students);
+//        }else
+//            return null;
     }
+
 
     @Override
     public List<StudentVO> getAllStudents() {
@@ -55,6 +57,35 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
         return studentConverter.toVOList(list);
     }
 
+    @Override
+    public StudentVO insertStudent(Student student) {
+        if (this.save(student))
+            return studentConverter.toVO(student);
+        else
+            return null;
+    }
+
+    @Override
+    public List<StudentVO> insertBatch(List<Student> students) {
+        if (this.saveBatch(students))
+            return studentConverter.toVOList( students);
+        else
+            return null;
+    }
+
+    @Override
+    public StudentVO updateStudentById(Student student) {
+        if (this.updateById(student))
+            return studentConverter.toVO(student);
+        else
+            return null;
+    }
+
+    @Override
+    public StudentVO deleteStudentById(Integer id) {
+        this.removeById(id);
+        return studentConverter.toVO(this.getById(id));
+    }
 
 }
 

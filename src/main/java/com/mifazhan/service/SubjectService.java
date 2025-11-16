@@ -15,7 +15,7 @@ public interface SubjectService extends IService<Subject> {
 
     List<SubjectVO> getSubject();
 
-    SubjectVO getSubjectById(String id);
+    SubjectVO getSubjectById(Integer id);
 
     SubjectVO getSubjectByName(String name);
 }

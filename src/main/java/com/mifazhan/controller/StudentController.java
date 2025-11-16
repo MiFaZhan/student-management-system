@@ -57,16 +57,17 @@ public class StudentController {
      * 新增学生信息
      */
     @PostMapping
-    public Result createStudent(@RequestBody Student student) {
-        return Result.success(studentService.save(student));
+    public Result insertStudent(@RequestBody Student student) {
+        return Result.success(studentService.insertStudent(student));
     }
+
 
     /**
      * 批量新增学生信息
      */
     @PostMapping("/batch")
-    public Result batchInsert(@RequestBody List<Student> students) {
-        return Result.success(studentService.saveBatch(students));
+    public Result insertBatch(@RequestBody List<Student> students) {
+        return Result.success(studentService.insertBatch(students));
     }
 
 
@@ -74,8 +75,8 @@ public class StudentController {
      * 根据id更新学生表信息
      */
     @PutMapping
-    public Result updateById(@RequestBody Student student) {
-        return Result.success(studentService.updateById(student));
+    public Result updateStudentById(@RequestBody Student student) {
+        return Result.success(studentService.updateStudentById(student));
     }
 
 
@@ -83,7 +84,7 @@ public class StudentController {
      * 根据id删除学生信息
      */
     @DeleteMapping("/{id}")
-    public Result deleteById(@PathVariable Integer id){
-        return Result.success(studentService.removeById(id));
+    public Result deleteStudentById(@PathVariable Integer id){
+        return Result.success(studentService.deleteStudentById(id));
     }
 }

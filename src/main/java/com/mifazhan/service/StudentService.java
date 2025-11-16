@@ -20,4 +20,12 @@ public interface StudentService extends IService<Student> {
     List<StudentVO> getStudentsByIds(List<Integer> ids);
 
     List<StudentVO> getStudentsByName(String name);
+
+    StudentVO insertStudent(Student student);
+
+    List<StudentVO> insertBatch(List<Student> students);
+
+    StudentVO updateStudentById(Student student);
+
+    StudentVO deleteStudentById(Integer id);
 }
