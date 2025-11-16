@@ -1,8 +1,11 @@
 package com.mifazhan.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.mifazhan.converter.ScoreConverter;
+import com.mifazhan.entity.ExamRecord;
 import com.mifazhan.entity.Score;
+import com.mifazhan.entity.Student;
 import com.mifazhan.mapper.ScoreMapper;
 import com.mifazhan.service.ScoreService;
 import com.mifazhan.vo.ScoreVO;
@@ -25,10 +28,30 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score>
     @Autowired
     private ScoreConverter scoreConverter;
 
+    private MPJLambdaWrapper<Score> buildScoreWrapper() {
+        MPJLambdaWrapper wrapper = new MPJLambdaWrapper<Score>()
+                .select(Score::getScoreId)
+                .leftJoin(Student.class, Student::getStudentName, Score::getStudentNumber)
+                .select(Score::getStudentNumber)
+                .leftJoin(ExamRecord.class,ExamRecord::getExamId, Score::getExamId)
+                .select(ExamRecord::getExamName)
+//                .leftJoin(Subject.class, ExamRecord::getSubjectId, Subject::getSubjectId)
+//                .select(Subject::getSubjectName)
+                .select(ExamRecord::getTeacherName)
+                .select(Score::getScore)
+                .select(ExamRecord::getExamStartTime);
+
+        return wrapper;
+    }
+
     @Override
     public List<ScoreVO> listScores() {
-        List<Score> list = this.list();
-        return scoreConverter.toVOList(list);
+        MPJLambdaWrapper<Score> wrapper = buildScoreWrapper();
+        List<ScoreVO> list = scoreMapper.selectJoinList(ScoreVO.class, wrapper);
+        return list;
+
+//        List<Score> list = this.list();
+//        return scoreConverter.toVOList(list);
     }
 }
 

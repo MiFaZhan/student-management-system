@@ -1,7 +1,7 @@
 package com.mifazhan.mapper;
 
+import com.github.yulichang.base.MPJBaseMapper;
 import com.mifazhan.entity.Score;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
 * @author MIFAZHAN
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2025-11-14 14:44:22
 * @Entity com.entity.Scores
 */
-public interface ScoreMapper extends BaseMapper<Score> {
+public interface ScoreMapper extends MPJBaseMapper<Score> {
 
 }
 
