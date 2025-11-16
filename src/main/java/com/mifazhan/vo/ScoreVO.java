@@ -1,11 +1,12 @@
 package com.mifazhan.vo;
 
-import java.util.Date;
+import lombok.Data;
+import java.math.BigDecimal;
 
-public class ScoresVO {
+@Data
+public class ScoreVO {
     private Integer scoreId;
     private String studentNumber;
     private Integer examId;
-    private Date examStartTime;
-    private Date examEndTime;
+    private BigDecimal score;
 }

@@ -4,6 +4,7 @@ import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.mifazhan.converter.ExamRecordConverter;
 import com.mifazhan.entity.ExamRecord;
+import com.mifazhan.entity.Subject;
 import com.mifazhan.mapper.ExamRecordMapper;
 import com.mifazhan.service.ExamRecordService;
 import com.mifazhan.vo.ExamRecordVO;
@@ -36,6 +37,8 @@ public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, 
         MPJLambdaWrapper<ExamRecord> wrapper = new MPJLambdaWrapper<ExamRecord>()
                 .select(ExamRecord::getExamId)
                 .select(ExamRecord::getExamName)
+                .leftJoin(Subject.class, Subject::getSubjectId, ExamRecord::getSubjectId)
+                .select(Subject::getSubjectName)
                 .select(ExamRecord::getTeacherName)
                 .select(ExamRecord::getExamStartTime)
                 .select(ExamRecord::getExamEndTime)

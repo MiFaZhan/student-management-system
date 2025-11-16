@@ -8,6 +8,7 @@ import java.util.Date;
 public class ExamRecordVO {
     private Integer examId;
     private String examName;
+    private String subjectName;
     private String teacherName;
     private Date examStartTime;
     private Date examEndTime;

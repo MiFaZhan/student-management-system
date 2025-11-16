@@ -1,7 +1,10 @@
 package com.mifazhan.service;
 
-import com.mifazhan.entity.Score;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mifazhan.entity.Score;
+import com.mifazhan.vo.ScoreVO;
+
+import java.util.List;
 
 /**
 * @author MIFAZHAN
@@ -10,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface ScoreService extends IService<Score> {
 
+    List<ScoreVO> listScores();
 }
