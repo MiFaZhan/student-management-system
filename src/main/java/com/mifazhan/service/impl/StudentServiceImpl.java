@@ -2,9 +2,12 @@ package com.mifazhan.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.mifazhan.converter.StudentConverter;
 import com.mifazhan.entity.Student;
 import com.mifazhan.mapper.StudentMapper;
 import com.mifazhan.service.StudentService;
+import com.mifazhan.vo.StudentVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +20,39 @@ import java.util.List;
 @Service
 public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     implements StudentService {
+    @Autowired
+    private StudentMapper studentMapper;
+
+    @Autowired
+    private StudentConverter studentConverter;
 
     @Override
-    public List<Student> getByStuName(String studentName) {
+    public List<StudentVO> getStudentsByName(String studentName) {
         LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Student::getStudentName, studentName);
-        return this.list(queryWrapper);
+        List<Student> students = studentMapper.selectList(queryWrapper);
+        return studentConverter.toVOList(students);
     }
+
+    @Override
+    public List<StudentVO> getAllStudents() {
+        List<Student> list = studentMapper.selectList(null);
+        return studentConverter.toVOList(list);
+    }
+
+    @Override
+    public StudentVO getStudentById(Integer id) {
+        Student student = studentMapper.selectById(id);
+        return studentConverter.toVO(student);
+    }
+
+    @Override
+    public List<StudentVO> getStudentsByIds(List<Integer> ids) {
+        List<Student> list = studentMapper.selectBatchIds(ids);
+        return studentConverter.toVOList(list);
+    }
+
+
 }
 
 

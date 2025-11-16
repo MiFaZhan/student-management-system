@@ -1,7 +1,8 @@
 package com.mifazhan.service;
 
-import com.mifazhan.entity.Student;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mifazhan.entity.Student;
+import com.mifazhan.vo.StudentVO;
 
 import java.util.List;
 
@@ -11,5 +12,12 @@ import java.util.List;
 * @createDate 2025-11-14 14:44:22
 */
 public interface StudentService extends IService<Student> {
-    List<Student> getByStuName(String studentName);
+
+    List<StudentVO> getAllStudents();
+
+    StudentVO getStudentById(Integer id);
+
+    List<StudentVO> getStudentsByIds(List<Integer> ids);
+
+    List<StudentVO> getStudentsByName(String name);
 }

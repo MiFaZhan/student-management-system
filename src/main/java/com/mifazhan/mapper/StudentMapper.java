@@ -1,7 +1,7 @@
 package com.mifazhan.mapper;
 
-import com.mifazhan.entity.Student;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.mifazhan.entity.Student;
 
 /**
 * @author MIFAZHAN

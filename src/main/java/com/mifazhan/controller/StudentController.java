@@ -3,6 +3,7 @@ package com.mifazhan.controller;
 import com.mifazhan.entity.Student;
 import com.mifazhan.service.StudentService;
 import com.mifazhan.vo.Result;
+import com.mifazhan.vo.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +21,8 @@ public class StudentController {
      * 查询所有学生
      */
     @GetMapping
-    public Result<List<Student>> getAllStudents() {
-        return Result.success(studentService.list());
+    public Result<List<StudentVO>> getAllStudents() {
+        return Result.success(studentService.getAllStudents());
     }
 
 
@@ -29,8 +30,8 @@ public class StudentController {
      * 根据id查询学生
      */
     @GetMapping("/{id}")
-    public Result<Student> getStudentById(@PathVariable Integer id) {
-        return Result.success(studentService.getById(id));
+    public Result<StudentVO> getStudentById(@PathVariable Integer id) {
+        return Result.success(studentService.getStudentById(id));
     }
 
 
@@ -38,8 +39,8 @@ public class StudentController {
      * 根据id批量查询学生信息
      */
     @PostMapping("/ids")
-    public Result<List<Student>> getStudentsByIds(@RequestBody List<Integer> ids) {
-        return Result.success(studentService.listByIds(ids));
+    public Result<List<StudentVO>> getStudentsByIds(@RequestBody List<Integer> ids) {
+        return Result.success(studentService.getStudentsByIds(ids));
     }
 
 
@@ -47,8 +48,8 @@ public class StudentController {
      * 根据姓名查询学生信息
      */
     @GetMapping("/name")
-    public Result<List<Student>> searchStudentsByName(@RequestParam String name) {
-        return Result.success(studentService.getByStuName(name));
+    public Result<List<StudentVO>> getStudentsByName(@RequestParam String name) {
+        return Result.success(studentService.getStudentsByName(name));
     }
 
 

@@ -20,9 +20,9 @@ public class SubjectController {
      * @return
      */
 //    @GetMapping
-//    public Result<List<SubjectDTO>> getSubjects() {
+//    public Result<List<SubjectVO>> getSubjects() {
 //        List<Subject> entityList = subjectService.list();
-//        List<SubjectDTO> dtoList = subjectConvert.toDTOList(entityList);
+//        List<SubjectVO> dtoList = subjectConvert.toDTOList(entityList);
 //        return Result.success(subjectService.list());
 //    }
 
@@ -33,7 +33,7 @@ public class SubjectController {
      */
     @GetMapping("/{id}")
     public Result getSubjectById(@PathVariable String id) {
-        return Result.success(getSubjectById(id));
+        return Result.success(subjectService.getById(id));
     }
 
 }
