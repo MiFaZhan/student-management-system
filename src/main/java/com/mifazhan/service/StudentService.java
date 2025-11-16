@@ -1,6 +1,7 @@
 package com.mifazhan.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mifazhan.dto.StudentDTO;
 import com.mifazhan.entity.Student;
 import com.mifazhan.vo.StudentVO;
 
@@ -21,11 +22,11 @@ public interface StudentService extends IService<Student> {
 
     List<StudentVO> getStudentsByName(String name);
 
-    StudentVO insertStudent(Student student);
+    StudentVO insertStudent(StudentDTO studentDTO);
 
-    List<StudentVO> insertBatch(List<Student> students);
+    List<StudentVO> insertBatch(List<StudentDTO> studentsDTO);
 
-    StudentVO updateStudentById(Student student);
+    StudentVO updateStudentById(StudentDTO studentDTO);
 
     StudentVO deleteStudentById(Integer id);
 }

@@ -1,6 +1,6 @@
 package com.mifazhan.controller;
 
-import com.mifazhan.entity.Student;
+import com.mifazhan.dto.StudentDTO;
 import com.mifazhan.service.StudentService;
 import com.mifazhan.vo.Result;
 import com.mifazhan.vo.StudentVO;
@@ -57,8 +57,8 @@ public class StudentController {
      * 新增学生信息
      */
     @PostMapping
-    public Result insertStudent(@RequestBody Student student) {
-        return Result.success(studentService.insertStudent(student));
+    public Result<StudentVO> insertStudent(@RequestBody StudentDTO studentDTO) {
+        return Result.success(studentService.insertStudent(studentDTO));
     }
 
 
@@ -66,8 +66,8 @@ public class StudentController {
      * 批量新增学生信息
      */
     @PostMapping("/batch")
-    public Result insertBatch(@RequestBody List<Student> students) {
-        return Result.success(studentService.insertBatch(students));
+    public Result insertBatch(@RequestBody List<StudentDTO> studentsDTO) {
+        return Result.success(studentService.insertBatch(studentsDTO));
     }
 
 
@@ -75,8 +75,8 @@ public class StudentController {
      * 根据id更新学生表信息
      */
     @PutMapping
-    public Result updateStudentById(@RequestBody Student student) {
-        return Result.success(studentService.updateStudentById(student));
+    public Result updateStudentById(@RequestBody StudentDTO studentDTO) {
+        return Result.success(studentService.updateStudentById(studentDTO));
     }
 
 

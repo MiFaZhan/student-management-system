@@ -3,6 +3,7 @@ package com.mifazhan.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mifazhan.converter.StudentConverter;
+import com.mifazhan.dto.StudentDTO;
 import com.mifazhan.entity.Student;
 import com.mifazhan.mapper.StudentMapper;
 import com.mifazhan.service.StudentService;
@@ -58,7 +59,8 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     }
 
     @Override
-    public StudentVO insertStudent(Student student) {
+    public StudentVO insertStudent(StudentDTO studentDTO) {
+        Student student = studentConverter.toEntity(studentDTO);
         if (this.save(student))
             return studentConverter.toVO(student);
         else
@@ -66,15 +68,22 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     }
 
     @Override
-    public List<StudentVO> insertBatch(List<Student> students) {
+    public List<StudentVO> insertBatch(List<StudentDTO> studentsDTO) {
+        List<Student> students = studentConverter.toEntityListFromDTO(studentsDTO);
         if (this.saveBatch(students))
-            return studentConverter.toVOList( students);
-        else
-            return null;
+            return studentConverter.toVOList(students);
+         else
+             return null;
+
+//        if (this.saveBatch(studentsDTO))
+//            return studentConverter.toVOList( students);
+//        else
+//            return null;
     }
 
     @Override
-    public StudentVO updateStudentById(Student student) {
+    public StudentVO updateStudentById(StudentDTO studentDTO) {
+        Student student = studentConverter.toEntity(studentDTO);
         if (this.updateById(student))
             return studentConverter.toVO(student);
         else

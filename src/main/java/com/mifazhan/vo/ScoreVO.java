@@ -7,7 +7,6 @@ import java.time.LocalDate;
 
 @Data
 public class ScoreVO {
-//    private Integer scoreId;
     private String subjectName;
     private String examName;
     private String teacherName;

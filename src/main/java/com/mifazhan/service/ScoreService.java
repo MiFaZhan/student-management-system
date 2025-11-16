@@ -14,4 +14,8 @@ import java.util.List;
 public interface ScoreService extends IService<Score> {
 
     List<ScoreVO> listScores();
+
+    List<ScoreVO> listStudentScores(String studentNumber);
+
+    List<ScoreVO> listStudentScoresByName(String studentName);
 }

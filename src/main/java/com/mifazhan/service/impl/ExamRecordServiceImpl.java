@@ -46,7 +46,7 @@ public class ExamRecordServiceImpl extends MPJBaseServiceImpl<ExamRecordMapper, 
                 .select("(SELECT COUNT(*) FROM score WHERE score.exam_id = t.exam_id AND score.deleted = 0) AS participantCount")
                 .eq(ExamRecord::getDeleted, 0)
                 .orderByAsc(ExamRecord::getExamStartTime);
-        
+
         return wrapper;
     }
 

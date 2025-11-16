@@ -1,11 +1,11 @@
-package com.mifazhan.vo;
+package com.mifazhan.dto;
 
 import lombok.Data;
 
 @Data
-public class StudentVO {
+public class StudentDTO {
 
-//    private Integer studentId;
+    private Integer studentId;
 
     /**
      * 学号

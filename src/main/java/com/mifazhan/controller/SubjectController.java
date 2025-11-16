@@ -44,4 +44,14 @@ public class SubjectController {
         return Result.success(subjectService.getSubjectByName(name));
     }
 
+    /**
+     * 新增课程
+     * @param subjectVO
+     * @return
+     */
+//    @PostMapping
+//    public Result insertSubject(@RequestBody SubjectVO subjectVO) {
+//        return Result.success(subjectService.save(subjectVO));
+//    }
+
 }

@@ -52,12 +52,21 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score>
         MPJLambdaWrapper<Score> wrapper = buildScoreWrapper();
         List<ScoreVO> list = scoreMapper.selectJoinList(ScoreVO.class, wrapper);
         return list;
+    }
 
-//        List<Score> list = this.list();
-//        return scoreConverter.toVOList(list);
+    @Override
+    public List<ScoreVO> listStudentScores(String studentNumber) {
+        MPJLambdaWrapper<Score> wrapper = buildScoreWrapper();
+        wrapper.eq(Score::getStudentNumber, studentNumber);
+        List<ScoreVO> list = scoreMapper.selectJoinList(ScoreVO.class, wrapper);
+        return list;
+    }
+    
+    @Override
+    public List<ScoreVO> listStudentScoresByName(String studentName) {
+        MPJLambdaWrapper<Score> wrapper = buildScoreWrapper();
+        wrapper.eq(Student::getStudentName, studentName);
+        List<ScoreVO> list = scoreMapper.selectJoinList(ScoreVO.class, wrapper);
+        return list;
     }
 }
-
-
-
-
