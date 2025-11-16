@@ -34,7 +34,17 @@ public class SubjectController {
      */
     @GetMapping("/{id}")
     public Result getSubjectById(@PathVariable String id) {
-        return Result.success(subjectService.getById(id));
+        return Result.success(subjectService.getSubjectById(id));
+    }
+
+    /**
+     * 根据名称查询课程
+     * @param name
+     * @return
+     */
+    @GetMapping("/{name}")
+    public Result getSubjectByName(@PathVariable String name) {
+        return Result.success(subjectService.getSubjectByName(name));
     }
 
 }

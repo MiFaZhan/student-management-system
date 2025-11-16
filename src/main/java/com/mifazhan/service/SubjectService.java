@@ -14,4 +14,8 @@ import java.util.List;
 public interface SubjectService extends IService<Subject> {
 
     List<SubjectVO> getSubject();
+
+    SubjectVO getSubjectById(String id);
+
+    SubjectVO getSubjectByName(String name);
 }

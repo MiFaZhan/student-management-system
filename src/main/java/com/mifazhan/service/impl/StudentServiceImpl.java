@@ -31,7 +31,10 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
         LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Student::getStudentName, studentName);
         List<Student> students = studentMapper.selectList(queryWrapper);
-        return studentConverter.toVOList(students);
+        if(students != null){
+            return studentConverter.toVOList(students);
+        }else
+            return null;
     }
 
     @Override
