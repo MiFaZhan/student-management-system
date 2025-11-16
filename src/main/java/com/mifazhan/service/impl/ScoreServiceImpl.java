@@ -6,6 +6,7 @@ import com.mifazhan.converter.ScoreConverter;
 import com.mifazhan.entity.ExamRecord;
 import com.mifazhan.entity.Score;
 import com.mifazhan.entity.Student;
+import com.mifazhan.entity.Subject;
 import com.mifazhan.mapper.ScoreMapper;
 import com.mifazhan.service.ScoreService;
 import com.mifazhan.vo.ScoreVO;
@@ -30,16 +31,18 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score>
 
     private MPJLambdaWrapper<Score> buildScoreWrapper() {
         MPJLambdaWrapper wrapper = new MPJLambdaWrapper<Score>()
-                .select(Score::getScoreId)
-                .leftJoin(Student.class, Student::getStudentName, Score::getStudentNumber)
-                .select(Score::getStudentNumber)
                 .leftJoin(ExamRecord.class,ExamRecord::getExamId, Score::getExamId)
+                .leftJoin(Subject.class,Subject::getSubjectId,ExamRecord::getSubjectId)
+                .select(Subject::getSubjectName)
                 .select(ExamRecord::getExamName)
-//                .leftJoin(Subject.class, ExamRecord::getSubjectId, Subject::getSubjectId)
-//                .select(Subject::getSubjectName)
                 .select(ExamRecord::getTeacherName)
+                .leftJoin(Student.class, Student::getStudentNumber, Score::getStudentNumber)
+                .select(Score::getStudentNumber)
+                .select(Student::getStudentName)
                 .select(Score::getScore)
-                .select(ExamRecord::getExamStartTime);
+//                .select(ExamRecord::getExamStartTime);
+                .select("DATE(exam_start_time) as examTime");
+
 
         return wrapper;
     }
