@@ -3,6 +3,7 @@ package com.mifazhan.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mifazhan.converter.SubjectConverter;
+import com.mifazhan.dto.SubjectDTO;
 import com.mifazhan.entity.Subject;
 import com.mifazhan.mapper.SubjectMapper;
 import com.mifazhan.service.SubjectService;
@@ -50,6 +51,15 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject>
         if (subject != null)
             return subjectConverter.toVO(subject);
         else return null;
+    }
+
+    @Override
+    public SubjectVO insertSubject(SubjectDTO subjectDTO) {
+        Subject subject = subjectConverter.toEntityFromDTO(subjectDTO);
+        if (this.save(subject))
+            return subjectConverter.toVO(subject);
+         else
+            return null;
     }
 }
 

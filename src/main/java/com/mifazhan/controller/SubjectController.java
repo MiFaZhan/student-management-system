@@ -1,5 +1,6 @@
 package com.mifazhan.controller;
 
+import com.mifazhan.dto.SubjectDTO;
 import com.mifazhan.service.SubjectService;
 import com.mifazhan.vo.Result;
 import com.mifazhan.vo.SubjectVO;
@@ -46,12 +47,16 @@ public class SubjectController {
 
     /**
      * 新增课程
-     * @param subjectVO
+     * @param subjectDTO
      * @return
      */
-//    @PostMapping
-//    public Result insertSubject(@RequestBody SubjectVO subjectVO) {
-//        return Result.success(subjectService.save(subjectVO));
-//    }
+    @PostMapping
+    public Result insertSubject(@RequestBody SubjectDTO subjectDTO) {
+        return Result.success(subjectService.insertSubject(subjectDTO));
+    }
+
+    /**
+     * 批量新增课程
+     */
 
 }

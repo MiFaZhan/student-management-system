@@ -1,5 +1,6 @@
 package com.mifazhan.converter;
 
+import com.mifazhan.dto.SubjectDTO;
 import com.mifazhan.entity.Subject;
 import com.mifazhan.vo.SubjectVO;
 import org.mapstruct.Mapper;
@@ -28,7 +29,7 @@ public interface SubjectConverter {
      * @param subjectVO 待转换的SubjectVO视图对象
      * @return 转换后的Subject实体对象
      */
-    Subject toEntity(SubjectVO subjectVO);
+    Subject toEntityFromVO(SubjectVO subjectVO);
 
     /**
      * 将SubjectVO视图对象列表转换为Subject实体对象列表
@@ -36,6 +37,26 @@ public interface SubjectConverter {
      * @return 转换后的Subject实体对象列表
      */
     List<Subject> toEntityList(List<SubjectVO> subjectVOs);
+
+    /**
+     * 将SubjectDTO数据传输对象转换为Subject实体对象
+     */
+    Subject toEntityFromDTO(SubjectDTO subjectDTO);
+
+    /**
+     * 将SubjectDTO数据传输对象列表转换为Subject实体对象列表
+     */
+    List<Subject> toEntityListFromDTO(List<SubjectDTO> subjectDTOs);
+
+    /**
+     * 将Subject实体对象转换为SubjectDTO数据传输对象
+     */
+    SubjectDTO toDTO(Subject subject);
+
+    /**
+     * 将Subject实体对象列表转换为SubjectDTO数据传输对象列表
+     */
+    List<SubjectDTO> toDTOList(List<Subject> subjects);
 
 
 
