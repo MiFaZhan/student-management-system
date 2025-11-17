@@ -18,7 +18,6 @@ public class SubjectController {
 
     /**
      * 查询所有课程
-     * @return
      */
     @GetMapping
     public Result<List<SubjectVO>> listSubject() {
@@ -27,8 +26,6 @@ public class SubjectController {
 
     /**
      * 根据id查询课程
-     * @param id
-     * @return
      */
     @GetMapping("/{id}")
     public Result getSubjectById(@PathVariable Integer id) {
@@ -37,8 +34,6 @@ public class SubjectController {
 
     /**
      * 根据名称查询课程
-     * @param name
-     * @return
      */
     @GetMapping("/name")
     public Result getSubjectByName(@RequestParam String name) {
@@ -47,8 +42,6 @@ public class SubjectController {
 
     /**
      * 新增课程
-     * @param subjectDTO
-     * @return
      */
     @PostMapping
     public Result insertSubject(@RequestBody SubjectDTO subjectDTO) {
