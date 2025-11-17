@@ -4,7 +4,6 @@ import com.mifazhan.dto.StudentDTO;
 import com.mifazhan.service.StudentService;
 import com.mifazhan.vo.Result;
 import com.mifazhan.vo.StudentVO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,9 +12,12 @@ import java.util.List;
 @RequestMapping("/api/student")
 public class StudentController {
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
 
+    // 使用构造器注入替代 @Autowired 字段注入
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     /**
      * 查询所有学生
@@ -66,7 +68,7 @@ public class StudentController {
      * 批量新增学生信息
      */
     @PostMapping("/batch")
-    public Result insertBatch(@RequestBody List<StudentDTO> studentsDTO) {
+    public Result<List<StudentVO>> insertBatch(@RequestBody List<StudentDTO> studentsDTO) {
         return Result.success(studentService.insertBatch(studentsDTO));
     }
 
@@ -75,7 +77,7 @@ public class StudentController {
      * 根据id更新学生表信息
      */
     @PutMapping
-    public Result updateStudentById(@RequestBody StudentDTO studentDTO) {
+    public Result<StudentVO> updateStudentById(@RequestBody StudentDTO studentDTO) {
         return Result.success(studentService.updateStudentById(studentDTO));
     }
 
@@ -84,7 +86,7 @@ public class StudentController {
      * 根据id删除学生信息
      */
     @DeleteMapping("/{id}")
-    public Result deleteStudentById(@PathVariable Integer id){
+    public Result<StudentVO> deleteStudentById(@PathVariable Integer id){
         return Result.success(studentService.deleteStudentById(id));
     }
 }

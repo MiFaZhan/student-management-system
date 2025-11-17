@@ -36,7 +36,7 @@ public interface StudentConverter {
     /**
      * StudentDTO转Student实体
      */
-    Student toEntity(StudentDTO studentDTO);
+    Student toEntityFromDTO(StudentDTO studentDTO);
 
     /**
      * StudentDTO列表转Student列表

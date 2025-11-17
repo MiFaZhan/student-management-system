@@ -60,7 +60,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
 
     @Override
     public StudentVO insertStudent(StudentDTO studentDTO) {
-        Student student = studentConverter.toEntity(studentDTO);
+        Student student = studentConverter.toEntityFromDTO(studentDTO);
         if (this.save(student))
             return studentConverter.toVO(student);
         else
@@ -83,7 +83,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
 
     @Override
     public StudentVO updateStudentById(StudentDTO studentDTO) {
-        Student student = studentConverter.toEntity(studentDTO);
+        Student student = studentConverter.toEntityFromDTO(studentDTO);
         if (this.updateById(student))
             return studentConverter.toVO(student);
         else
@@ -92,8 +92,9 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
 
     @Override
     public StudentVO deleteStudentById(Integer id) {
+        Student student = this.getById(id);
         this.removeById(id);
-        return studentConverter.toVO(this.getById(id));
+        return studentConverter.toVO(student);
     }
 
 }

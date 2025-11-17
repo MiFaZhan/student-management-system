@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/api/subject")
 public class SubjectController {
 
+    private final SubjectService subjectService;
+
     @Autowired
-    private SubjectService subjectService;
+    public SubjectController(SubjectService subjectService) {
+        this.subjectService = subjectService;
+    }
 
     /**
      * 查询所有课程
@@ -28,7 +32,7 @@ public class SubjectController {
      * 根据id查询课程
      */
     @GetMapping("/{id}")
-    public Result getSubjectById(@PathVariable Integer id) {
+    public Result<SubjectVO> getSubjectById(@PathVariable Integer id) {
         return Result.success(subjectService.getSubjectById(id));
     }
 
@@ -36,7 +40,7 @@ public class SubjectController {
      * 根据名称查询课程
      */
     @GetMapping("/name")
-    public Result getSubjectByName(@RequestParam String name) {
+    public Result<SubjectVO> getSubjectByName(@RequestParam String name) {
         return Result.success(subjectService.getSubjectByName(name));
     }
 
@@ -44,12 +48,14 @@ public class SubjectController {
      * 新增课程
      */
     @PostMapping
-    public Result insertSubject(@RequestBody SubjectDTO subjectDTO) {
+    public Result<SubjectVO> insertSubject(@RequestBody SubjectDTO subjectDTO) {
         return Result.success(subjectService.insertSubject(subjectDTO));
     }
 
     /**
      * 批量新增课程
      */
+//    @PostMapping("/batch")
+
 
 }
