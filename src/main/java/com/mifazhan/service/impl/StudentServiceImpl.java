@@ -9,24 +9,26 @@ import com.mifazhan.exception.BusinessException;
 import com.mifazhan.mapper.StudentMapper;
 import com.mifazhan.service.StudentService;
 import com.mifazhan.vo.StudentVO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
 * @author MIFAZHAN
-* @description 针对表【students(学生表)】的数据库操作Service实现
-* @createDate 2025-11-14 14:44:22
+* 针对表【students(学生表)】的数据库操作Service实现
+* 2025-11-14 14:44:22
 */
 @Service
 public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     implements StudentService {
-    @Autowired
-    private StudentMapper studentMapper;
 
-    @Autowired
-    private StudentConverter studentConverter;
+    private final StudentMapper studentMapper;
+    private final StudentConverter studentConverter;
+
+    public StudentServiceImpl(StudentMapper studentMapper, StudentConverter studentConverter) {
+        this.studentMapper = studentMapper;
+        this.studentConverter = studentConverter;
+    }
 
     @Override
     public List<StudentVO> listStudents() {
