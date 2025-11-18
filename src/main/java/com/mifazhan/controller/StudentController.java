@@ -24,7 +24,7 @@ public class StudentController {
      */
     @GetMapping
     public Result<List<StudentVO>> listStudents() {
-        return Result.success(studentService.listStudents());
+        return Result.success("成功，查询所有学生数据如下",studentService.listStudents());
     }
 
 
@@ -33,7 +33,7 @@ public class StudentController {
      */
     @GetMapping("/{id}")
     public Result<StudentVO> getStudentById(@PathVariable Integer id) {
-        return Result.success(studentService.getStudentById(id));
+        return Result.success("成功，根据id查询学生数据如下",studentService.getStudentById(id));
     }
 
 
@@ -42,7 +42,7 @@ public class StudentController {
      */
     @PostMapping("/ids")
     public Result<List<StudentVO>> listStudentsByIds(@RequestBody List<Integer> ids) {
-        return Result.success(studentService.listStudentsByIds(ids));
+        return Result.success("成功，根据id批量查询学生数据如下",studentService.listStudentsByIds(ids));
     }
 
 
@@ -51,7 +51,7 @@ public class StudentController {
      */
     @GetMapping("/name")
     public Result<List<StudentVO>> getStudentsByName(@RequestParam String name) {
-        return Result.success(studentService.getStudentsByName(name));
+        return Result.success("成功，根据姓名查询学生数据如下",studentService.getStudentsByName(name));
     }
 
 
@@ -60,7 +60,7 @@ public class StudentController {
      */
     @PostMapping
     public Result<StudentVO> insertStudent(@RequestBody StudentDTO studentDTO) {
-        return Result.success(studentService.insertStudent(studentDTO));
+        return Result.success("成功，新增学生数据如下",studentService.insertStudent(studentDTO));
     }
 
 
@@ -69,7 +69,7 @@ public class StudentController {
      */
     @PostMapping("/batch")
     public Result<List<StudentVO>> insertBatch(@RequestBody List<StudentDTO> studentsDTO) {
-        return Result.success(studentService.insertBatch(studentsDTO));
+        return Result.success("成功，批量新增学生数据如下",studentService.insertBatch(studentsDTO));
     }
 
 
@@ -78,7 +78,7 @@ public class StudentController {
      */
     @PutMapping
     public Result<StudentVO> updateStudentById(@RequestBody StudentDTO studentDTO) {
-        return Result.success(studentService.updateStudentById(studentDTO));
+        return Result.success("成功，更新学生数据如下",studentService.updateStudentById(studentDTO));
     }
 
 
@@ -87,6 +87,6 @@ public class StudentController {
      */
     @DeleteMapping("/{id}")
     public Result<StudentVO> deleteStudentById(@PathVariable Integer id){
-        return Result.success(studentService.deleteStudentById(id));
+        return Result.success("成功，删除学生数据如下",studentService.deleteStudentById(id));
     }
 }
