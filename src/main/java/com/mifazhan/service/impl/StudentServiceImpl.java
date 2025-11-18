@@ -74,11 +74,6 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
             return studentConverter.toVOList(students);
          else
              return null;
-
-//        if (this.saveBatch(studentsDTO))
-//            return studentConverter.toVOList( students);
-//        else
-//            return null;
     }
 
     @Override
