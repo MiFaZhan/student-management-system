@@ -1,6 +1,7 @@
 package com.mifazhan.exception;
 
 import com.mifazhan.vo.Result;
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
@@ -120,6 +121,11 @@ public class GlobalExceptionHandler {
     public Result<?> handleDuplicateKeyException(DuplicateKeyException e, HttpServletRequest request) {
         log.error("数据库唯一键冲突异常：{} - {}", request.getRequestURI(), e.getMessage());
         return Result.error(409, "数据已存在，请勿重复提交");
+    }
+
+    @ExceptionHandler(MysqlDataTruncation.class)
+    public Result<String> handleDataTruncation(MysqlDataTruncation e) {
+        return Result.error(400, "数据长度超出限制，请检查输入数据");
     }
 
     /**

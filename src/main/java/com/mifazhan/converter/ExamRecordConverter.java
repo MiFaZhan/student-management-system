@@ -37,5 +37,4 @@ public interface ExamRecordConverter {
      */
     List<ExamRecord> toEntityList(List<ExamRecordVO> examRecordVOs);
 
-
 }

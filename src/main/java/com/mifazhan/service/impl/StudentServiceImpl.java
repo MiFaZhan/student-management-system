@@ -10,6 +10,7 @@ import com.mifazhan.mapper.StudentMapper;
 import com.mifazhan.service.StudentService;
 import com.mifazhan.vo.StudentVO;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -94,8 +95,9 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
             throw new BusinessException(500, "新增学生失败");
     }
 
-    //事务待写
+    //待完善
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public List<StudentVO> insertBatch(List<StudentDTO> studentsDTO) {
         if (studentsDTO == null || studentsDTO.isEmpty()) {
             throw new BusinessException(400, "批量新增学生DTO列表不能为空");
@@ -106,10 +108,10 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
             throw new BusinessException(400, "DTO转换为实体类后为空，请检查DTO数据有效性");
         }
 
-        if (this.saveBatch(students))
-            return studentConverter.toVOList(students);
-         else
-             throw new BusinessException(500, "批量插入学生失败");
+        if (!this.saveBatch(students)) {
+            throw new BusinessException(500, "批量插入学生失败");
+        }
+        return studentConverter.toVOList(students);
     }
 
     @Override
